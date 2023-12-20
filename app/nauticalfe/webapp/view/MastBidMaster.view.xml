@@ -127,7 +127,7 @@
                 </Column>
                
             </columns>
-            <ColumnListItem id="istItem1">
+            <ColumnListItem>
                 <cells>
                     <CheckBox id="_IDGenCheckBox1" />
                     <Text id="_IDGenText3" text="{}" />
@@ -177,7 +177,7 @@
             </columns>
             <ColumnListItem id="istItem1">
                 <cells>
-                    <CheckBox />
+                    <CheckBox/>
                     <Input id="BNAME" value="{}" />
                     <Input id="CODE" value="{}" />
                     <Input id="VALUE" value="{}" />

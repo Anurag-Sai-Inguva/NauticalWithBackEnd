@@ -32,16 +32,26 @@ sap.ui.define(
   
         },onSave: function () {
   
-          var value1 =  this.getView().byId("CLASSFIELD").getValue();
-          var value2 =  this.getView().byId("CLASSDESC").getValue();
-  
+          var value1 =  this.getView().byId("BNAME").getValue();
+          var value2 =  this.getView().byId("CODE").getValue();
+          var value3 =  this.getView().byId("VALUE").getValue();
+          var value4 =  this.getView().byId("CVALUE").getValue();
+          var value5 =  this.getView().byId("CUNIT").getValue();
+          var value6 =  this.getView().byId("DATATYPE").getValue();
+          var value7 =  this.getView().byId("TABLENAME").getValue();
+          var value8 =  this.getView().byId("MULTI_CHOICE").getValue();
   
           
           var data = {
   
-            ZF_VALUE: value1,
-  
-            ZF_DESC: value2
+            BNAME: value1,
+            CODE:value2,
+            VALUE:value3,
+            CVALUE:value4,
+            CUNIT:value5,
+            DATATYPE:value6,
+            TABLENAME:value7,
+            MULTI_CHOICE: value8
   
           };
           console.log(data);

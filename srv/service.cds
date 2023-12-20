@@ -26,6 +26,7 @@ service Nautical{
     entity NAVOYGUOM as projection on NAUTI_MAS.NAVOYGUOM;
     entity NAVOYGC as projection on NAUTI_MAS.NAVOYGC;
     entity EVENT_MAS as projection on NAUTI_MAS.EVENT_MAS;
+     entity ZPORT as projection on NAUTI_MAS.ZPORT;
     entity REF_DOC_S as projection on NAUTI_MAS.REF_DOC_S;
     entity NAVOYGH as projection on create_voyage.NAVOYGH;
     entity NAVOYGIP as projection on create_voyage.NAVOYGIP;
