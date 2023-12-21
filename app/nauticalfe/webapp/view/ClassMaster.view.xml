@@ -1,3 +1,4 @@
+
 <mvc:View
     xmlns:tnt="sap.tnt"
     xmlns:form="sap.ui.layout.form"
@@ -9,93 +10,66 @@
     xmlns:core="sap.ui.core"
 >
     <Page id="_IDGenPage1">
-        <headerContent>
+       <headerContent>
             <!-- Your header content goes here -->
-            <Bar
-                id="_IDGenBar1"
-                class="customHeader"
-            >
+            <Bar class="customHeader">
                 <contentLeft>
                     <core:Icon
-                        id="_IDGenIcon1"
                         src="sap-icon://nav-back"
                         class="size1"
                         color="#FFFFFF"
                         press="backPress"
                     />
                     <core:Icon
-                        id="_IDGenIcon2"
                         src="sap-icon://home"
                         class="size1"
                         color="#FFFFFF"
                         press="onBackPressHome"
                     />
                     <Image
-                        id="_IDGenImage2"
-                        src="../images/ingenxlogo.jpg"
+                        src="./images/ingenxlogo.jpg"
                         height="75%"
                     />
                     <Text
-                        id="_IDGenText1"
                         class="textBid"
                         text='Change View Class of Vessel Master: Overview'
                     />
                 </contentLeft>
                 <contentRight>
                     <core:Icon
-                        id="_IDGenIcon3"
                         src="sap-icon://search"
                         class="size1"
                         color="#FFFFFF"
                     >
                         <core:layoutData>
-                            <FlexItemData
-                                id="_IDGenFlexItemData1"
-                                growFactor="1"
-                            />
+                            <FlexItemData growFactor="1" />
                         </core:layoutData>
                     </core:Icon>
                     <core:Icon
-                        id="_IDGenIcon4"
                         src="sap-icon://SAP-icons-TNT/user"
                         class="size1"
                         color="#FFFFFF"
                     >
                         <core:layoutData>
-                            <FlexItemData
-                                id="_IDGenFlexItemData2"
-                                growFactor="1"
-                            />
+                            <FlexItemData growFactor="1" />
                         </core:layoutData>
                     </core:Icon>
                 </contentRight>
             </Bar>
         </headerContent>
-        <Bar
-            id="_IDGenBar12"
+       <Bar
+            id="_IDGenBar1"
             class="_IDGenBar1"
-        >
+         >
             <contentLeft>
                 <Button
-                    id="_IDGenButton12"
                     text="New Entries"
                     press="newEntries"
                 />
-                <Button
-                    id="_IDGenButton13"
-                    text="Copy As"
-                />
-                <Button
-                    id="_IDGenButton14"
-                    text="Delete"
-                    press="onDeleteVoyageType"
-                />
-                <Button
-                    id="_IDGenButton15"
-                    text="Update"
-                    press="onShowUpdateDialog"
-                />
-                
+                <Button text="Copy As" />
+                <Button text="Edit"  press="pressEdit"/>
+                <Button text="Delete" press="onDeletePress"/>
+               
                 <Button
                     id="button"
                     icon="sap-icon://slim-arrow-down"
@@ -107,24 +81,19 @@
             </contentLeft>
             <contentRight>
                 <core:Icon
-                    id="_IDGenIcon33"
                     src="sap-icon://print"
                     class="size1"
                     color="#FF0000"
                 />
+                <!-- <Button text="Display" /> -->
                 <Button
-                    id="_IDGenButton19"
-                    text="Display"
-                />
-                <Button
-                    id="_IDGenButton20"
                     text="Exit"
-                    press="MastPage"
+                    press="onExit"
                 />
             </contentRight>
         </Bar>
         <Label
-            text="Currency Type Master Table "
+            text="Class of Vessel Master "
             class="masterheadings"
         />
         <Table
@@ -135,7 +104,7 @@
             selectionChange="selectedItems"
             width="100%"
             class="mastertables"
-            
+           
         >
             <columns>
                 <Column id="_IDGenColumn1">
@@ -163,7 +132,7 @@
                             id="_IDGenInput2"
                             text="{ZF_DESC}"
                         />
-                        
+                       
                     </cells>
                 </ColumnListItem>
             </items>
@@ -175,6 +144,7 @@
             width="100%"
             class="mastertables"
             visible="false"
+            mode="MultiSelect"
         >
             <columns>
                 <Column>
@@ -187,17 +157,44 @@
             <items>
                 <ColumnListItem>
                     <cells>
-                        <Input id="CLASSFIELD" />
-                        <Input id="CLASSDESC"  />
+                        <Input id="valCode"  maxLength="4"/>
+                        <Input id="valCodeDesc" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+       
+        <Table
+            id="updateTypeTable"
+            updateFinished="onTableUpdateFinished"
+            selectionChange="selectedItems"
+            width="100%"
+            class="mastertables"
+            visible="false"
+           
+        >
+            <columns>
+                <Column>
+                    <Text text="Value " />
+                </Column>
+                <Column>
+                    <Text text="Field Description" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text id="valCode1" text="" />
+                        <Input id="valCodeDesc1"  editable="true"/>
                     </cells>
                 </ColumnListItem>
             </items>
         </Table>
         <!-- <Button id="_IDGenButton2" text="Add Row" press="updateTableRefresh" /> -->
-        
+       
             <!-- footers for both pages are coded differently as save functionality is different in
         both main page and new entries page  -->
-
+ 
             <!-- main page footer -->
             <OverflowToolbar
                 id="mainPageFooter"
@@ -213,22 +210,33 @@
                 <Button
                     id="_IDGenButton22"
                     text="Cancel"
+                    press="onCancel"
                 />
             </OverflowToolbar>
 
+            <OverflowToolbar
+                id="mainPageFooter2"
+                design="Auto"
+                visible="false"
+            >
+                <ToolbarSpacer id="_IDGenToolbarSpacer4" />
+                <Button
+                    id="mainPageSave12"
+                    text="Update"
+                    press="onUpdate"
+                />
+                <Button
+                    id="_IDGenButton23"
+                    text="Cancel"
+                    press="onCancel"
+                />
+            </OverflowToolbar>
+ 
             <!--new entries footer -->
-            
-        
+           
+       
     </Page>
-
-    <!--scrollbar added-->
-    <ScrollContainer
-        id="_IDGenScrollContainer1"
-        height="100%"
-        width="100%"
-        vertical="true"
-        focusable="true"
-    >
-        <!--this is first page-->
-    </ScrollContainer>
+ 
+    
+    
 </mvc:View>

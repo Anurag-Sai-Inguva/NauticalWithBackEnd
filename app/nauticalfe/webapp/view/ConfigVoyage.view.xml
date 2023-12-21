@@ -1,75 +1,101 @@
 <mvc:View
-    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
     controllerName="nauticalfe.controller.ConfigVoyage"
-    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
-    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
 >
-    <Page id="page">
+    <Page id="_IDGenPage1">
         <headerContent>
             <!-- Your header content goes here -->
-            <Bar id="_IDGenBar2" class="customHeader">
+            <Bar
+                id="_IDGenBar1"
+                class="customHeader"
+            >
                 <contentLeft>
-                    <core:Icon id="_IDGenIcon1"
+                    <core:Icon
+                        id="_IDGenIcon1"
                         src="sap-icon://nav-back"
                         class="size1"
                         color="#FFFFFF"
-                        press="onBackPress"
+                        press="backPress"
                     />
-                    <core:Icon id="_IDGenIcon2"
+                    <core:Icon
+                        id="_IDGenIcon2"
                         src="sap-icon://home"
                         class="size1"
                         color="#FFFFFF"
                         press="onBackPressHome"
                     />
-                    <Image id="_IDGenImage1"
+                    <Image
+                        id="_IDGenImage2"
                         src="../images/ingenxlogo.jpg"
                         height="75%"
                     />
-                    <Text id="_IDGenText1"
+                    <Text
+                        
                         class="textBid"
-                        text="Change View Release Strategy master table for Voyage Release:Overview"
-
+                        text='Change View "Release Stratergy master table for voyage Release": Overview'
                     />
                 </contentLeft>
                 <contentRight>
-                    <core:Icon id="_IDGenIcon3"
+                    <core:Icon
+                        id="_IDGenIcon3"
                         src="sap-icon://search"
                         class="size1"
                         color="#FFFFFF"
                     >
                         <core:layoutData>
-                            <FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
+                            <FlexItemData
+                                id="_IDGenFlexItemData1"
+                                growFactor="1"
+                            />
                         </core:layoutData>
                     </core:Icon>
-                    <core:Icon id="_IDGenIcon4"
+                    <core:Icon
+                        id="_IDGenIcon4"
                         src="sap-icon://SAP-icons-TNT/user"
                         class="size1"
                         color="#FFFFFF"
                     >
                         <core:layoutData>
-                            <FlexItemData id="_IDGenFlexItemData2" growFactor="1" />
+                            <FlexItemData
+                                id="_IDGenFlexItemData2"
+                                growFactor="1"
+                            />
                         </core:layoutData>
                     </core:Icon>
                 </contentRight>
             </Bar>
         </headerContent>
         <Bar
-            id="_IDGenBar1"
+            id="_IDGenBar12"
             class="_IDGenBar1"
         >
             <contentLeft>
-                <Button id="_IDGenButton1"
+                <Button
+                    id="_IDGenButton12"
                     text="New Entries"
-                    press="onCreatePress"
+                    press="newEntries"
                 />
-                <Button id="_IDGenButton2" text="Copy As" />
-                <Button id="_IDGenButton3" text="Delete" />
-                <Button id="_IDGenButton4" text="Undo Change" />
-                <Button id="_IDGenButton5" text="Select All" />
-                <Button id="_IDGenButton6" text="Select Block" />
-                <Button id="_IDGenButton7" text="Deselect All" />
+                <Button
+                    id="_IDGenButton13"
+                    text="Copy As"
+                />
+                <Button
+                    id="_IDGenButton14"
+                    text="Delete"
+                    press="onDeleteVoyageType"
+                />
+                <Button
+                    id="_IDGenButton15"
+                    text="Update"
+                    press="onShowUpdateDialog"
+                />
+                
                 <Button
                     id="button"
                     icon="sap-icon://slim-arrow-down"
@@ -80,140 +106,115 @@
                 />
             </contentLeft>
             <contentRight>
-                <core:Icon id="_IDGenIcon5"
+                <core:Icon
+                    id="_IDGenIcon33"
                     src="sap-icon://print"
                     class="size1"
                     color="#FF0000"
                 />
-                <Button id="_IDGenButton8" text="Display" />
-                <Button id="_IDGenButton9"
+                <Button
+                    id="_IDGenButton19"
+                    text="Display"
+                />
+                <Button
+                    id="_IDGenButton20"
                     text="Exit"
-                    press="onPressExit"
+                    press="MastPage"
                 />
             </contentRight>
         </Bar>
-        <Text id="_IDGenText2"
-            text="Release Strategy master table for Voyage release"
+        <Label
+            text="Release Strategy master table for Voyage Release"
             class="masterheadings"
         />
- 
         <Table
+            id="createTypeTable"
+            mode="MultiSelect"
+            items="{/ZVOY_RELVoyage}"
+            updateFinished="onTableUpdateFinished"
+            selectionChange="selectedItems"
             width="100%"
             class="mastertables"
-            items="{MARINE_TRAFFIC_API_SRV>/PortMasterSet}"
-            visible="true"
-            id="firstTableId"
-            mode="MultiSelect"
+            
         >
             <columns>
-               
-                <Column id="_IDGenColumn1">
-                    <Label id="_IDGenLabel1" text="Country" />
-                </Column>
-                <Column id="_IDGenColumn2">
-                    <Label id="_IDGenLabel2" text="Port Code" />
-                </Column>
-                <Column id="_IDGenColumn3">
-                    <Label id="_IDGenLabel3" text="Port Name" />
-                </Column>
-                <Column id="_IDGenColumn4">
-                    <Label id="_IDGenLabel4" text="Relatedanchorage" />
-                </Column>
-                <Column id="_IDGenColumn5">
-                    <Label id="_IDGenLabel5" text="Latitude" />
-                </Column>
-                <Column id="_IDGenColumn6">
-                    <Label id="_IDGenLabel6" text="Longitude" />
-                </Column>
-                <Column id="_IDGenColumn7">
-                    <Label id="_IDGenLabel7" text="Country Name" />
-                </Column>
-                <Column id="_IDGenColumn8">
-                    <Label id="_IDGenLabel8" text="Location Id" />
-                </Column>
-                <Column id="_IDGenColumn9">
-                    <Label id="_IDGenLabel9" text="Proc Ind" />
-                </Column>
-            </columns>
-            <ColumnListItem id="_IDGenColumnListItem1">
-                <cells>
-                   
-                    <Text id="_IDGenText3" text="{MARINE_TRAFFIC_API_SRV>Country}" />
-                    <Text id="_IDGenText4" text="{MARINE_TRAFFIC_API_SRV>Portc}" />
-                    <Text id="_IDGenText5" text="{MARINE_TRAFFIC_API_SRV>Portn}" />
-                    <Text id="_IDGenText6" text="{MARINE_TRAFFIC_API_SRV>Reancho}" />
-                    <Text id="_IDGenText7" text="{MARINE_TRAFFIC_API_SRV>Latitude}" />
-                    <Text id="_IDGenText8" text="{MARINE_TRAFFIC_API_SRV>Longitude}" />
-                    <Text id="_IDGenText9" text="{MARINE_TRAFFIC_API_SRV>Countryn}" />
-                    <Text id="_IDGenText10" text="{MARINE_TRAFFIC_API_SRV>Locid}" />
-                    <Text id="_IDGenText11" text="{}" />
-                </cells>
-            </ColumnListItem>
-        </Table>
- 
-        <VBox id="toHide">
-            <Table
-                width="100%"
-                class="mastertables"
-                items="{MARINE_TRAFFIC_API_SRV>/PortMasterSet}"
-                visible="false"
-                id="newTableId"
-            >
-                <columns>
-                    <Column id="_IDGenColumn10" width="30px">
-                        <Label id="_IDGenLabel10" text=" " />
+                    <Column >
+                        <Label text="Release Stratergy" />
                     </Column>
-                    <Column id="_IDGenColumn11">
-                        <Label id="_IDGenLabel11" text="Country" />
+                    <Column >
+                        <Label text="VoyageType" />
                     </Column>
-                    <Column id="_IDGenColumn12">
-                        <Label id="_IDGenLabel12" text="Port Code" />
+                    <Column >
+                        <Label text="Vessel Type" />
                     </Column>
-                    <Column id="_IDGenColumn13">
-                        <Label id="_IDGenLabel13" text="Port Name" />
+                    <Column >
+                        <Label text="User Id Group" />
                     </Column>
-                    <Column id="_IDGenColumn14">
-                        <Label id="_IDGenLabel14" text="Relatedanchorage" />
-                    </Column>
-                    <Column id="_IDGenColumn15">
-                        <Label id="_IDGenLabel15" text="Latitude" />
-                    </Column>
-                    <Column id="_IDGenColumn16">
-                        <Label id="_IDGenLabel16" text="Longitude" />
-                    </Column>
-                    <Column id="_IDGenColumn17">
-                        <Label id="_IDGenLabel17" text="Country Name" />
-                    </Column>
-                    <Column id="_IDGenColumn18">
-                        <Label id="_IDGenLabel18" text="Location Id" />
-                    </Column>
-                    <Column id="_IDGenColumn19">
-                        <Label id="_IDGenLabel19" text="Proc Ind" />
+                    <Column >
+                        <Label text="User Name" />
                     </Column>
                 </columns>
                 <ColumnListItem id="_IDGenColumnListItem2">
                     <cells>
-                        <CheckBox id="_IDGenCheckBox1" />
-                        <Text id="_IDGenText12" text="{MARINE_TRAFFIC_API_SRV>Country}" />
-                        <Text id="_IDGenText13" text="{MARINE_TRAFFIC_API_SRV>Portc}" />
-                        <Text id="_IDGenText14" text="{MARINE_TRAFFIC_API_SRV>Portn}" />
-                        <Text id="_IDGenText15" text="{MARINE_TRAFFIC_API_SRV>Reancho}" />
-                        <Text id="_IDGenText16" text="{MARINE_TRAFFIC_API_SRV>Latitude}" />
-                        <Text id="_IDGenText17" text="{MARINE_TRAFFIC_API_SRV>Longitude}" />
-                        <Text id="_IDGenText18" text="{MARINE_TRAFFIC_API_SRV>Countryn}" />
-                        <Text id="_IDGenText19" text="{MARINE_TRAFFIC_API_SRV>Locid}" />
-                        <Text id="_IDGenText20" text="{}" />
+                        <Text  text="{RELS}" />
+                        <Text  text="{VOYTY}" />
+                        <Text  text="{VESTY}" />
+                        <Text  text="{ZGROUP}" />
+                        <Text  text="{APP1}" />
                     </cells>
                 </ColumnListItem>
-            </Table>
-            
-        </VBox>
-        <footer>
-                <OverflowToolbar id="_IDGenOverflowToolbar1" design="Auto">
-                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-                <Button id="_IDGenButton10" text="Save" ></Button>
-                <Button id="_IDGenButton11" text="Cancel"  ></Button>
-                </OverflowToolbar>
-            </footer>
+        </Table>
+        <Table
+            id="entryTypeTable"
+            updateFinished="onTableUpdateFinished"
+            selectionChange="selectedItems"
+            width="100%"
+            class="mastertables"
+            visible="false"
+        >
+            <columns>
+               <Column >
+                        <Label text="Release Stratergy" />
+                    </Column>
+                    <Column >
+                        <Label text="VoyageType" />
+                    </Column>
+                    <Column >
+                        <Label text="Vessel Type" />
+                    </Column>
+                    <Column >
+                        <Label text="User Id Group" />
+                    </Column>
+                    <Column >
+                        <Label text="User Name" />
+                    </Column>
+                </columns>
+                <ColumnListItem >
+                    <cells>
+                        <Input id="rels"></Input>
+                        <Input id="voyType"></Input>
+                        <Input id="vesType"></Input>
+                        <Input id="userIdGrp"></Input>
+                        <Input id="userName"></Input>
+                    </cells>
+                </ColumnListItem>
+        </Table>
+            <OverflowToolbar
+                id="mainPageFooter"
+                design="Auto"
+                visible="false"
+            >
+                <ToolbarSpacer id="_IDGenToolbarSpacer3" />
+                <Button
+                    id="mainPageSave"
+                    text="Save"
+                    press="onSave"
+                />
+                <Button
+                    id="_IDGenButton22"
+                    text="Cancel"
+                />
+            </OverflowToolbar>
+
     </Page>
 </mvc:View>
