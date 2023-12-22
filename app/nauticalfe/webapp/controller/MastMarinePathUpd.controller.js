@@ -77,7 +77,20 @@ sap.ui.define([
               },onPressExit:function () {
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("MastView");
-              }
+              },
+                    
+      //file upload fragment controller code
+      onFileSelect:function(oEvent){
+        var oFileUploader = oEvent.getSource();
+        var sFileName = oFileUploader.getValue();
+        console.log(sFileName)
+  
+        // Set the file name to the Input field
+        var oFileNameInput = this.byId("fileName");
+        oFileNameInput.setValue(sFileName);
+
+        this.exitDialog();
+      }
         });
 });
  

@@ -60,13 +60,10 @@
             class="_IDGenBar1"
         >
             <contentLeft>
-                <Button id="_IDGenButton1" text="New Entries" />
+                <Button id="_IDGenButton1" text="New Entries" press="newEntries" />
                 <Button id="_IDGenButton2" text="Copy As" />
-                <Button id="_IDGenButton3" text="Delete" />
-                <Button id="_IDGenButton4" text="Undo Change" />
-                <Button id="_IDGenButton5" text="Select All" />
-                <Button id="_IDGenButton6" text="Select Block" />
-                <Button id="_IDGenButton7" text="Deselect All" />
+                <Button id="_IDGenButton3" text="Delete" press="onDeletePress"/>
+                <Button id="_IDGenButton4" text="Update" />
                 <Button
                     id="button"
                     icon="sap-icon://slim-arrow-down"
@@ -96,88 +93,88 @@
         <Table id="createTypeTable"
             width="100%"
             class="mastertables"
+            items="{/MAS}"
+            mode="MultiSelect"
+           
         >
             <columns>
-                <Column id="" width="40px">
-                    <Label text=" " />
-                </Column>
-                <Column id="">
+               
+                <Column >
                     <Label text="User" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Code" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Value" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Revaluation" />
                 </Column>
-                 <Column id="" >
+                 <Column  >
                     <Label text="Crcy" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Data Type" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Table Name" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Multiple Column" />
                 </Column>
                
             </columns>
-            <ColumnListItem>
+            <ColumnListItem id="_istItem1">
                 <cells>
-                    <CheckBox id="_IDGenCheckBox1" />
-                    <Text id="_IDGenText3" text="{}" />
-                    <Text id="_IDGenText4" text="{}" />
-                    <Text id="_IDGenText5" text="{}" />
-                    <Text id="_IDGenText6" text="{}" />
-                    <Text id="_IDGenText7" text="{}" />
-                    <Text id="_IDGenText8" text="{}" />
-                    <Text id="_IDGenText9" text="{}" />
-                    <Text id="_IDGenText10" text="{}" />
+                   
+                    <Text id="_IDGenText3" text="{BNAME}" />
+                    <Text id="_IDGenText4" text="{CODE}" />
+                    <Text id="_IDGenText5" text="{VALUE}" />
+                    <Text id="_IDGenText6" text="{CVALUE_code}" />
+                    <Text id="_IDGenText7" text="{CUNIT_code}" />
+                    <Text id="_IDGenText8" text="{DATATYPE}" />
+                    <Text id="_IDGenText9" text="{TABLENAME}" />
+                    <Text id="_IDGenText10" text="{MULTI_CHOICE}" />
                 </cells>
             </ColumnListItem>
         </Table>
          <Table id="entryTypeTable"
             width="100%"
             class="mastertables"
+            visible="false"
         >
             <columns>
-                <Column id="1" width="40px">
-                    <Label text=" " />
-                </Column>
+               
                 <Column id="User">
                     <Label text="User" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Code" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Value" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Revaluation" />
                 </Column>
-                 <Column id="" >
+                 <Column  >
                     <Label text="Crcy" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Data Type" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Table Name" />
                 </Column>
-                <Column id="">
+                <Column >
                     <Label text="Multiple Column" />
                 </Column>
                
             </columns>
             <ColumnListItem id="istItem1">
                 <cells>
-                    <CheckBox/>
+                   
                     <Input id="BNAME" value="{}" />
                     <Input id="CODE" value="{}" />
                     <Input id="VALUE" value="{}" />
@@ -185,19 +182,17 @@
                     <Input id="CUNIT" value="{}" />
                     <Input id="DATATYPE" value="{}" />
                     <Input id="TABLENAME" value="{}" />
-                    <Input id="MULTI_CHOICE" value="{}" />
+                    <CheckBox id="MULTI_CHOICE"/>
                 </cells>
             </ColumnListItem>
         </Table>
-        <footer>
-                <OverflowToolbar id="_IDGenOverflowToolbar1" design="Auto">
+       
+                <OverflowToolbar id="mainPageFooter" design="Auto" visible="false">
                 <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-                <Button id="_IDGenButton10" text="Save" ></Button>
+                <Button id="_IDGenButton10" text="Save"  press="onSave"></Button>
                 <Button id="_IDGenButton11" text="Cancel"  ></Button>
                 </OverflowToolbar>
-            </footer>
- 
-       
+  
     </Page>
 </mvc:View>
  

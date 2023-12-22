@@ -23,7 +23,7 @@
                         src="../images/ingenxlogo.jpg"
                         height="75%"
                     />
-                    <Text id="_IDGenText1"
+                    <Text
                         class="textBid"
                         text="Change View :Master Details for Marine Path Upload: Overview"
                     />
@@ -52,21 +52,21 @@
         </headerContent>
         <Bar id="_IDGenBar1" class="_IDGenBar1">
         <contentLeft>
-            <Button id="_IDGenButton1" text="Save as Variant"></Button>
-            <Button id="_IDGenButton2" text="Download as Template"></Button>
+            <Button  text="Save as Variant"></Button>
+            <Button text="Download as Template"></Button>
             <Button id="button" icon="sap-icon://slim-arrow-down" iconFirst="false" text="More" press="onPress" ariaHasPopup="Menu"/>
         </contentLeft>
         <contentRight>
-            <Button id="_IDGenButton4" text="Exit" press="MastPage"></Button>
+            <Button  text="Exit" press="MastPage"></Button>
         </contentRight>
         </Bar>
-        <HBox id="_IDGenHBox1" alignItems="Center" class="masterFileUpload">
-            <Label id="_IDGenLabel1" text="File Name:"></Label>
-            <Input id="_IDGenInput1" width="450px"></Input>
-            <Button id="_IDGenButton3" icon="sap-icon://copy" press="fileupload"></Button>
+        <HBox alignItems="Center" class="masterFileUpload">
+            <Label text="File Name:"></Label>
+            <Input width="450px" id="fileName" editable="false"></Input>
+            <Button icon="sap-icon://copy" press="fileupload"></Button>
         </HBox>
-        <HBox id="_IDGenHBox2" class="masteroptionsfooter">
-            <Button id="_IDGenButton5" text="Execute" class="masterbuttonsalign"></Button>
+        <HBox class="masteroptionsfooter">
+            <Button text="Execute" class="masterbuttonsalign"></Button>
         </HBox>
         </Page>
 </mvc:View>

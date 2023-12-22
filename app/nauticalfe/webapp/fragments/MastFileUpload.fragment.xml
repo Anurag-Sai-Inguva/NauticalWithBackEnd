@@ -1,9 +1,9 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-    <Dialog id="fileUpload" class="sapUiContentPadding" contentWidth="400px" contentHeight="130px" title="Chartering Request" >
+<core:FragmentDefinition xmlns="sap.m" xmlns:unified="sap.ui.unified" xmlns:core="sap.ui.core">
+    <Dialog id="fileUpload" class="sapUiContentPadding" contentWidth="450px" contentHeight="150px" title="Chartering Request" >
         <content>
             <Text id="_IDGenText1" text="This application needs a file to upload to SAP System"></Text>
-                <HBox id="_IDGenHBox1" class="MastDialogButtonAlign">
-                <Button id="_IDGenButton1" text="Ok" class="masterbuttonsalign"></Button>
+            <HBox id="_IDGenHBox1" class="MastDialogButtonAlign">
+                <unified:FileUploader id="fileUploader" uploadUrl="ourUrl" class="masterbuttonsalign" change="onFileSelect"/>
                 <Button id="_IDGenButton2" text="Exit" class="masterbuttonsalign" press="exitDialog"></Button>
             </HBox>
         </content>
