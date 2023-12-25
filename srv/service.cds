@@ -11,7 +11,7 @@ using {voyage_approval} from '../db/approval_voyage_schema';
 using {create_chartering} from '../db/chartering_schema';
 using {submit_quotation} from '../db/submit_quotation_schema';
 using {compare_quotation} from '../db/compare_quotaion_schema';
-using {NAUTI_MAS.BIDMASTER} from '../db/voyage_master_data';
+// using {NAUTI_MAS.BIDMASTER} from '../db/voyage_master_data';
 
 service Nautical {
     entity EPATH              as projection on api_url.EPATH;

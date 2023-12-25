@@ -149,11 +149,7 @@ sap.ui.define(
           MULTI_CHOICE:MULTI_CHOICE
 
         };
-       
-       
 
-
-       
         var JsonData = JSON.stringify(data)
         let EndPoint = "/odata/v4/nautical/MAS";
         fetch(EndPoint, {

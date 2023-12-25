@@ -38,7 +38,7 @@
                     <Text
                         id="_IDGenText1"
                         class="textBid"
-                        text='Change View "API URL Path Master": Overview'
+                        text='Change View " Country Master tcode": Overview'
                     />
                 </contentLeft>
                 <contentRight>
@@ -88,12 +88,12 @@
                 <Button
                     id="_IDGenButton14"
                     text="Delete"
-                    press="onDeleteVoyageType"
+                    press="onDeletePress"
                 />
                 <Button
                     id="_IDGenButton15"
                     text="Update"
-                    press="onShowUpdateDialog"
+                    press="pressEdit"
                 />
                 
                 <Button
@@ -124,7 +124,7 @@
             </contentRight>
         </Bar>
         <Label
-            text="API URL Path Master"
+            text="Country Master Tcode"
             class="masterheadings"
         />
         <Table
@@ -186,13 +186,39 @@
                 </ColumnListItem>
             </items>
         </Table>
+        <Table
+            id="updateTypeTable"
+            updateFinished="onTableUpdateFinished"
+            selectionChange="selectedItems"
+            width="100%"
+            class="mastertables"
+            visible="false"
+           
+        >
+            <columns>
+                <Column>
+                    <Text text="Value" />
+                </Column>
+                <Column>
+                    <Text text="Field Description" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text id="curCode1" text="" />
+                        <Input id="curCodeDesc1"  editable="true"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
         <!-- <Button id="_IDGenButton2" text="Add Row" press="updateTableRefresh" /> -->
         
             <!-- footers for both pages are coded differently as save functionality is different in
         both main page and new entries page  -->
 
             <!-- main page footer -->
-            <OverflowToolbar
+                       <OverflowToolbar
                 id="mainPageFooter"
                 design="Auto"
                 visible="false"
@@ -206,6 +232,25 @@
                 <Button
                     id="_IDGenButton22"
                     text="Cancel"
+                    press="onCancel"
+                />
+            </OverflowToolbar>
+
+            <OverflowToolbar
+                id="mainPageFooter2"
+                design="Auto"
+                visible="false"
+            >
+                <ToolbarSpacer id="_IDGenToolbarSpacer4" />
+                <Button
+                    id="mainPageSave12"
+                    text="Update"
+                    press="onUpdate"
+                />
+                <Button
+                    id="_IDGenButton23"
+                    text="Cancel"
+                    press="onCancel"
                 />
             </OverflowToolbar>
 
@@ -214,14 +259,4 @@
         
     </Page>
 
-    <!--scrollbar added-->
-    <ScrollContainer
-        id="_IDGenScrollContainer1"
-        height="100%"
-        width="100%"
-        vertical="true"
-        focusable="true"
-    >
-        <!--this is first page-->
-    </ScrollContainer>
 </mvc:View>
