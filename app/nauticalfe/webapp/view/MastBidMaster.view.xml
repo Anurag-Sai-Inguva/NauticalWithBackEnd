@@ -63,7 +63,7 @@
                 <Button id="_IDGenButton1" text="New Entries" press="newEntries" />
                 <Button id="_IDGenButton2" text="Copy As" />
                 <Button id="_IDGenButton3" text="Delete" press="onDeletePress"/>
-                <Button id="_IDGenButton4" text="Update" />
+                <Button id="_IDGenButton4" text="Update" press="pressEdit"/>
                 <Button
                     id="button"
                     icon="sap-icon://slim-arrow-down"
@@ -79,7 +79,7 @@
                         class="size1"
                         color="#FF0000"
                     />
-                <Button id="_IDGenButton8" text="Display" />
+                <Button id="_IDGenButton8" text="Display"/>
                 <Button id="_IDGenButton9"
                     text="Exit"
                     press="onPressExit"
@@ -186,12 +186,91 @@
                 </cells>
             </ColumnListItem>
         </Table>
-       
-                <OverflowToolbar id="mainPageFooter" design="Auto" visible="false">
-                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-                <Button id="_IDGenButton10" text="Save"  press="onSave"></Button>
-                <Button id="_IDGenButton11" text="Cancel"  ></Button>
-                </OverflowToolbar>
+         <Table
+            id="updateTypeTable"
+            updateFinished="onTableUpdateFinished"
+            selectionChange="selectedItems"
+            width="100%"
+            class="mastertables"
+            visible="false"
+           
+        >
+            <columns>
+                <Column>
+                    <Label text="User" />
+                </Column>
+                <Column >
+                    <Label text="Code" />
+                </Column>
+                <Column >
+                    <Label text="Value" />
+                </Column>
+                <Column >
+                    <Label text="Revaluation" />
+                </Column>
+                 <Column  >
+                    <Label text="Crcy" />
+                </Column>
+                <Column >
+                    <Label text="Data Type" />
+                </Column>
+                <Column >
+                    <Label text="Table Name" />
+                </Column>
+                <Column >
+                    <Label text="Multiple Column" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text id="inp1" text="" />
+                        <Input id="inp2"  editable="true"/>
+                        <Input id="inp3"  editable="true"/>
+                        <Input id="inp4"  editable="true"/>
+                        <Input id="inp5"  editable="true"/>
+                        <Input id="inp6"  editable="true"/>
+                        <Input id="inp7"  editable="true"/>
+                        <Input id="inp8"  editable="true"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+                <OverflowToolbar
+                id="mainPageFooter"
+                design="Auto"
+                visible="false"
+            >
+                <ToolbarSpacer id="_IDGenToolbarSpacer3" />
+                <Button
+                    id="mainPageSave"
+                    text="Save"
+                    press="onSave"
+                />
+                <Button
+                    id="_IDGenButton22"
+                    text="Cancel"
+                    press="onCancel"
+                />
+            </OverflowToolbar>
+
+            <OverflowToolbar
+                id="mainPageFooter2"
+                design="Auto"
+                visible="false"
+            >
+                <ToolbarSpacer id="_IDGenToolbarSpacer4" />
+                <Button
+                    id="mainPageSave12"
+                    text="Update"
+                    press="onUpdate"
+                />
+                <Button
+                    id="_IDGenButton23"
+                    text="Cancel"
+                    press="onCancel"
+                />
+            </OverflowToolbar>
   
     </Page>
 </mvc:View>

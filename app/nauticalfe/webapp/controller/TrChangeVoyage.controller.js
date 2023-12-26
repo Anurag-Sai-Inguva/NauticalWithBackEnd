@@ -1,8 +1,12 @@
 sap.ui.define(
     [
-        "sap/ui/core/mvc/Controller"
+        "sap/ui/core/mvc/Controller",
+        "sap/ui/core/Fragment",
+        "sap/ui/core/routing/History"
+ 
+        
     ],
-    function( BaseController) {
+    function( BaseController,Fragment) {
       "use strict";
   
       return BaseController.extend("nauticalfe.controller.TrChangeVoyage", {
@@ -108,13 +112,30 @@ sap.ui.define(
             // Alert when no row is selected
             alert("Please select a row to delete");
         }
-    }
+    },
+    showCharges:function(){
+      var oView = this.getView()
+      if(!this.byId('voyageCharges')){
+          Fragment.load({
+              name:"nauticalfe.fragments.TrVoyageCharges",
+              controller:this,
+              id:oView.getId()
+          }).then(function(oDialog){
+              oDialog.open()
+          })
+      }
+      else{
+          this.byId('voyageCharges').open()
+      }
+  },
+  exitDialog:function(){
+      var oDialog = this.byId('voyageCharges');
+      if (oDialog) {
+          oDialog.close();
+      }
+  }
     
-    
-    
-    
-        
-      });
+  });
     }
   );
   

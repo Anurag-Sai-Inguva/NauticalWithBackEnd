@@ -5,7 +5,7 @@ xmlns:form="sap.ui.layout.form"
     <Text text="Selection Option" id="HeadOptions"/>
     <VBox id="VoyageOperations">
         <Button text="Capture Voyage Details" width="300px" class="buttonSpacing buttonhead" icon="sap-icon://calendar" press="CreateVoyage"></Button>
-        <Button text="Change  Voyage Details" width="300px" class="buttonSpacing"></Button>
+        <Button text="Change  Voyage Details" width="300px" class="buttonSpacing" press="changeVoyage"></Button>
         <Button text="Display Voyage Details" width="300px" class="buttonSpacing"></Button>
         <Button text="Maintain Events" width="300px" class="buttonSpacing" icon="sap-icon://edit"></Button>
         <Button text="Voyage Approval" width="300px" class="buttonSpacing"></Button>

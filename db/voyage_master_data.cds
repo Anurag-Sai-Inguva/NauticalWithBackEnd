@@ -32,28 +32,16 @@ entity CURR {
 
 
 //Bid Master Data table
-entity MAS_BID {
-
-   key BNAME        : String(12)@assert.unique @mandatory @assert.notNull;    //This field represents a unique username.
-
-   key CODE         : String(10)@assert.unique @mandatory @assert.notNull; //This field represents a unique Code
-
-    VALUE        : String(50); //value
-
-    CVALUE       : Association to CURR {NAVOYCUR}; //revaluation amount on back posting a previoud period
-
-    CUNIT        : Currency; //currency key
-
-
-    DATATYPE     : String(3); //data type
-
-    TABLENAME    : String(20); //table name
-
-    MULTI_CHOICE : String(1); //multiple choice
-    
-
-
-};
+entity BIDMASTER{
+   key BNAME: String(12)@assert.unique @mandatory @assert.notNull;
+   key CODE : String(10)@assert.unique @mandatory @assert.notNull; //This field represents a unique Code
+     VALUE: String(50); //value
+     CVALUE:String;
+     CUNIT:String;  
+     DATATYPE : String(3); //data type
+     TABLENAME: String(20);
+     MULTI_CHOICE:Boolean;
+}
 
 //Port Master Code table
 entity ZPORT {

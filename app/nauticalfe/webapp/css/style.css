@@ -1,201 +1,72 @@
-/* Enter your custom styles here */
-.sapUshellShellHeader{
-    background-color: black;
+.page{
+    background-color: rgba(245, 245, 245, 0.898);
 }
- 
-  .layout{
-    margin-top: -7%;
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    border: 1px solid rgb(238, 234, 234);
-    margin-left: 10px;
-   
-  }
-  /* for border*/
-  #application-nauticalfe-display-component---View2--mainSplitter-content-1{
-    background-color: white;
-    border: 1px solid rgb(199, 192, 192);
-    height: 400px;
+.pageFooter{
+    border: 1px solid rgb(194, 193, 193);
 }
-#application-nauticalfe-display-component---View2--mainSplitter-content-2{
-    background-color: white;
-    border: 1px solid rgb(199, 192, 192);
-    height: 400px;
+.sapMBtnContent{
+    color: rgb(195, 68, 68);;
 }
-#application-nauticalfe-display-component---View2--mainSplitter-content-0{
-    background-color: white;
-    border: 1px solid rgb(199, 192, 192);
-    height: 400px;
+/************************************ For Home Screen **********************************************/
+.tileLayout{
+    border-radius: 0%;
 }
-.sapUiLoSplitterH.sapUiLoSplitter {
-    margin: 10px;
+/************************************* For Create Voyage Screen *************************************/
+
+.crthreebox{
+    line-height: 1.5%;
+}
+.threeFlex{
+    margin: 0.5%;
+    border: 1px solid rgb(204, 202, 202);
 }
 .tableLayout{
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 10px !important;
+    border: 1px solid rgb(218, 215, 215);
+    
 }
-.speedmeasuretxt{
-    padding: 7px !important;
+/************************************** Freight Simulator Screen ***************************************/
+.freightSimulatorPage{
+    background-color: rgb(212, 238, 240);
 }
-.tablebtn{
-    margin-right: 10px !important;
+.fsBar2{
+    background-color:#0e6977ed;
+    font-weight: bold;
 }
-/*for refresh button color*/
-.sapMBtnInner.sapMBtnText {
-    color: red;
-    border: 1px solid red;
-     
-}
-/*for help button color*/
-#application-nauticalfe-display-component---View2--_IDGenButton4-img{
-    color: red; /*for refresh button*/
-}
- 
-/*for value help button*/
-#application-nauticalfe-display-component---View2--_IDGenInput2-vhi{
-    color: rgb(245, 131, 131);
-}
-#application-nauticalfe-display-component---View2--_IDGenInput3-vhi{
-    color: rgb(245, 131, 131);
-}
-#application-nauticalfe-display-component---View2--_IDGenInput4-vhi{
-    color: rgb(245, 131, 131);
-}
-#application-nauticalfe-display-component---View2--_IDGenInput5-vhi{
-    color: rgb(245, 131, 131);
-}
-.sapUiSizeCompact .sapMBtnInner{
-    border: 1px solid red;
-}
-/* Calculate Btn */
-#application-nauticalfe-display-component---View2--_IDGenButton4-inner{
-    color: red;
-}
-#application-nauticalfe-display-component---View2--_IDGenButton3-inner{
-    background-color: red;
-}
- 
-#application-nauticalfe-display-component---View2--_IDGenButton3-BDI-content{
-    background-color: red;
+.fsBarTxt1{
     color: white;
 }
- 
-/*for button hover*/
-.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive) >
- .sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnDefault, .sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive) >
- .sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnBack, .sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive) >
- .sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnGhost {
-    color: red;
-    background-color: rgba(234, 144, 130, 0.299);
+.fsSubBar{
+    background-color: #369cac !important;
 }
- 
-.sapMText {
-    font-size: 12px;
-}
-/*---------------------------------------------------------------------------------------------------------*/
- 
-/*For view 3 headers*/
- 
-#application-nauticalfe-display-component---View3--header2{
-    background-color:white
-}
-#application-nauticalfe-display-component---View3--header3{
-    background-color:rgb(25, 134, 134);
-    height: 40px;
-}
-#application-nauticalfe-display-component---View3--header4{
-    background-color:rgb(25, 134, 134);
-    height: 40px;
-}
-#application-nauticalfe-display-component---View3--header5{
-    background-color:rgb(25, 134, 134);
-    height: 45px;
-}
- 
-#application-nauticalfe-display-component---View3--link2{
-    color:black;
-    margin-left: 45%;
-}
- 
-.freighttxt{
+.labelTxt{
     color: white !important;
 }
-.freightback{
-    background-color: rgb(41, 178, 178) !important;
-    height: 40px !important;
-}
-.heading1{
-    color:black !important;
-    margin-left: 45% !important;
-}
- 
-/* bidding controller page*/
- 
+
+/************************************** Bidding controller page ******************************************/
 .biddingTileflex{
     justify-content: space-around;
     justify-content: center;
 }
- 
-/* bid page icon */
-#application-nauticalfe-display-component---BidCont--openTileNumericId-value-inner{
-    color: orange;
-   
-}
-#application-nauticalfe-display-component---BidCont--closeTileNumericId-value-inner{
-    color: green;
-}
-#application-nauticalfe-display-component---BidCont--ongoingTileNumericId-value-inner{
-    color: orange;
-}
- 
-/* for table border  */
-/* .sapMListTblSelCol, .sapMListTblCell, .sapMListTblNavCol {
-    border: none;
-} */
-.ongoingPanelPanel{
-    padding: 30px;
-    border:1px solid black;
-    background-color: white;
-    padding: 30px;
+
+.ongoingPanel{
+    border:1px solid rgb(210, 209, 209);
+    padding: 5%;
     margin: 1%;
     border-radius: 0%;
-    margin-right: 5%;
+    background-color: rgb(255, 255, 255);
 }
-#application-nauticalfe-display-component---BidCont--PanelId-header{
-    border-bottom: none;
-}
- 
-.sapMColumnHeader {
-    background-color: rgb(242, 242, 242);
-    border: 1px solid rgb(187, 186, 186);
-   
-}
-#application-nauticalfe-display-component---BidCont--table-tblHeadNav{
-    background-color: rgb(240, 235, 235);
-    border-top: 1px solid rgb(187, 186, 186);
- 
-}
- 
-#application-nauticalfe-display-component---BiddingController--header2{
-    border-bottom: 1px solid rgb(187, 186, 186);
-}
-.Tile{
-    border-radius: 0%;
-}
-/* for bid obj page*/
+
+/************************************** Bidding object page ************************************************/
 .bpanel1{
     width: 20rem ;
    
 }
- 
 .vPanel{
     display: flex;
     flex-direction: row;
     gap: 5rem;
     flex-wrap: wrap;
-    margin-top: -2%;
+    
 }
  
 .text1{
@@ -206,7 +77,6 @@
 }
 .botxt3{
     margin-top: 5%!important;
-   
 }
 .botxt1{
    margin-top: 3%;
@@ -235,59 +105,50 @@
     margin-top: 15%;
     font-size: 24px;
 }
-/*dashboard*/
-.vPanel{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5 rem;
+
+/**************************************** Nautical Dashboard Screen *********************************/
+.dashboardPanel{
+    background-color: white;
+    margin: 7%;
 }
-.panel{
-    padding: 40px;
+.headerTxt{
+    font-weight: bold;
 }
- 
-.mastrimg{
+.dashboardBtn{
+    margin-top: 15%;
+    margin-left: 23%;
+}
+.nauticalimg{
     margin-top: 5%;
+    margin-left: 10%;
     position: fixed;
 }
-.Trans{
-    padding: 10%; margin: 10% 15%;
+
+/************************************** Master Dashboard Screen  ***************************************/
+.one,.two,.three,.four,.five{
+    margin-left: 2%;
+    margin-top: 5%;
 }
-.Mastr{
-    padding: 10%; margin: 10% 15%;
+.one,.three,.five{
+    width: 30%;
 }
- 
-.nauticalImg{
-    max-width: 280px !important;
-    height: 270px !important;
+.two,.four{
+    width: 8%;
+}
+.nauticalimg1{
     margin-top: 10%;
+    position: fixed;
 }
- 
-.dashPanel2{
-    padding: 1rem;  
+
+/*********************************Voyage Type Screen ********************************************/
+.table{
+    margin-left: 1%;
 }
-.sapUiSizeCompact .sapMBtnInner {
-    border-radius: 4px;
-}
-/* .mastrimg{
-    margin-top: 10% !important;
-} */
- 
-/*transaction data css*/
+
+/************************************** Transaction data  **************************************/
 .voy,.right,.FS {
     margin: 5%;
 }
-/*master data css*/
-.one,.two,.three,.four,.five{
-    margin: 2%; margin-top: 7%;
-   
-}
-/*for nautical image*/
-/* .sapMFlexItemAlignAuto {
-    align-self: center;
-} */
- 
- 
 /* for voyage option page */
  
 .buttonSpacing{
@@ -300,20 +161,13 @@
 }
  
  
- 
- 
- 
- 
 /*for Createvoyage plan */
  
 .animation{
     display: none;
 }
  
-.sapUiSizeCompact .sapMBtnContent {
-    line-height: 1.500rem;
-    color: rgb(194, 65, 65);
-}
+
 #application-nauticalfe-display-component---TrCreateVoyagePlan--Select1-labelText{
     line-height: 1.500rem;
     color: rgb(172, 52, 52);  
@@ -363,10 +217,11 @@
  
  
  
-heading{
-    margin-top: 80px;
+.heading{
+    margin-top: 20px;
     margin-left: 20px;
     font-size: 15px;
+    font-weight: light;
    
 }
  
@@ -473,9 +328,9 @@ font-size: small;
 .infoinputs{
     margin-left: 2rem;
 }
-Table{
+/* Table{
     border: 1px solid grey !important;
-}
+} */
  .sapMLIBShowSeparator>td{
     border: 1px solid rgb(214, 211, 211);
  }
@@ -540,24 +395,11 @@ Table{
 .masterheadings{
     margin-left: 40px;
     margin-top:30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
 }
  
-.mastertables{
-    margin-top: 5px ;
-}
- 
-/* .masteroptionsfooter{
-    margin-top: 400px;
-    margin-left: 1150px;
-} */
- 
-/* .masterbuttonsalign{
-    padding: 10px 15px;
-    margin-right: 10px;
-} */
- 
+
+
 /* file upload dialog box css */
 .MastDialogButtonAlign{
     margin-top: 40px;
@@ -571,8 +413,48 @@ Table{
     background-color: black;
     color: white;
 }
- 
+
+/* save as variant tab */
+
+.sapMCb .sapMLabel {
+    margin-top: -1.5%;
+}
+.LabelInput1{
+    margin-top: 2%;
+    margin-left: 5%;
+}
+.LabelInput2{
+    margin-left: 5%;
+}
+#container-nauticalfe---MastSaveAsVariant--_IDGenColumn3-ah {
+    height: 16px;
+}
+.btnIcon{
+    margin: 5px;
+}
+.tableHeading{
+    font-size: 16px;
+    margin-top: 1%;
+}
+.txtInfoBox{
+    margin: 4%;
+}
+.boldText{
+    font-weight: bold;
+    font-size: 14px;
+}
+
 /* for all icon */
 .sapMBtnIcon {
     color: rgb(194, 65, 65);
+}
+
+/*Change voyage page*/
+.techdropdown{
+    margin-left: 320px;
+}
+
+.commercialbutton{
+    margin-left: 620px;
+    margin-top: -50px;
 }

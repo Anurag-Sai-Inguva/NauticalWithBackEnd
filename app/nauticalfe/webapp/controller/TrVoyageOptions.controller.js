@@ -21,6 +21,11 @@ sap.ui.define([
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("TrCaptureVoyage")    
             },
+
+            changeVoyage:function(){
+                const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("RouteTrChangeVoyage")   
+            }
             
         });
     });

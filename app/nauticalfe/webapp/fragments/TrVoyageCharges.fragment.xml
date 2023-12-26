@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:unified="sap.ui.unified" xmlns:core="sap.ui.core">
+    <Dialog id="voyageCharges" class="sapUiContentPadding" contentWidth="500px" contentHeight="400px" title="F4 Help For Cost Code" >
+        <content>
+            <Title text="Selection Options"></Title>
+            <Table mode="MultiSelect">
+                <columns>
+                    <Column>
+                        <Label text="Cost Code"></Label>
+                    </Column>
+                    <Column>
+                        <Label text="Description"></Label>
+                    </Column>
+                </columns>
+                <ColumnListItem >
+                    <cells>
+                        <Text text="1001"></Text>
+                        <Text text="Port Charges"></Text>
+                    </cells>
+                </ColumnListItem>
+                      <ColumnListItem >
+                    <cells>
+                        <Text text="1002"></Text>
+                        <Text text="Wharfare Charges"></Text>
+                    </cells>
+                </ColumnListItem>
+                      <ColumnListItem >
+                    <cells>
+                        <Text text="1003"></Text>
+                        <Text text="Inspection Charges"></Text>
+                    </cells>
+                </ColumnListItem>
+                      <ColumnListItem >
+                    <cells>
+                        <Text text="1004"></Text>
+                        <Text text="Loading Charges"></Text>
+                    </cells>
+                </ColumnListItem>
+                <ColumnListItem >
+                    <cells>
+                        <Text text="1005"></Text>
+                        <Text text="Unloading Charges"></Text>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+            <HBox class="MastDialogButtonAlign">
+               <Button text="Ok" class="masterbuttonsalign" press="exitDialog"></Button>
+                <Button text="Exit" class="masterbuttonsalign" press="exitDialog"></Button>
+            </HBox> 
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

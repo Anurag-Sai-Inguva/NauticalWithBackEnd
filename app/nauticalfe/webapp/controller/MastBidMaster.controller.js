@@ -101,9 +101,16 @@ sap.ui.define(
   function (BaseController,History,MessageToast) {
     "use strict";
     let aSelectedIds=[];
+
     return BaseController.extend("nauticalfe.controller.MastBidMaster", {
       onInit() {
-      }, onBackPress: function () {
+        this.getView().byId("createTypeTable").setVisible(true);
+        this.getView().byId("entryTypeTable").setVisible(false);
+        this.getView().byId("mainPageFooter").setVisible(false);
+        this.getView().byId("updateTypeTable").setVisible(false);
+      },
+      
+      onBackPress: function () {
         const oHistory = History.getInstance();
         const sPreviousHash = oHistory.getPreviousHash();
 
@@ -119,14 +126,17 @@ sap.ui.define(
       },onPressExit:function () {
         const oRouter = this.getOwnerComponent().getRouter();
         oRouter.navTo("MastView");
-      }, newEntries: function () {
+      }, 
+      
+      newEntries: function () {
         this.getView().byId("createTypeTable").setVisible(false)
         this.getView().byId("entryTypeTable").setVisible(true)
         this.getView().byId("mainPageFooter").setVisible(true)
 
 
-      },onSave: function () {
-
+      },
+      
+      onSave: function () {
         var BNAME =  this.getView().byId("BNAME").getValue();
         var CODE =  this.getView().byId("CODE").getValue();
         var VALUE =  this.getView().byId("VALUE").getValue();
@@ -181,35 +191,35 @@ sap.ui.define(
           this.getView().byId("mainPageFooter").setVisible(false)
 
       },
-      selectedItems: function (oEvent) {
-        // console.log("hello");
-        let oTable = oEvent.getSource();
-        let aSelectedItems = oTable.getSelectedItems();
-       
- 
-        aSelectedIds = aSelectedItems.map(function (oSelectedItem) {
- 
-          if (oSelectedItem.getBindingContext()) {
-            let cells = oSelectedItem.getCells();
-            console.log(cells);
-            return [
-            oSelectedItem.getBindingContext().getProperty("BNAME"),
-            oSelectedItem.getBindingContext().getProperty("CODE"),
-            oSelectedItem.getBindingContext().getProperty("VALUE"),
-            oSelectedItem.getBindingContext().getProperty("CVALUE"),
-            oSelectedItem.getBindingContext().getProperty("CUNIT"),
-            oSelectedItem.getBindingContext().getProperty("DATATYPE"),
-            oSelectedItem.getBindingContext().getProperty("TABLENAME"),
-            oSelectedItem.getBindingContext().getProperty("MULTI_CHOICE")]
- 
-          } else {
- 
-          }
-        });
-        console.log(aSelectedIds);
-        return aSelectedIds;
- 
-      },
+        selectedItems: function (oEvent) {
+          // console.log("hello");
+          let oTable = oEvent.getSource();
+          let aSelectedItems = oTable.getSelectedItems();
+        
+          aSelectedIds = aSelectedItems.map(function (oSelectedItem) {
+  
+            if (oSelectedItem.getBindingContext()) {
+              let cells = oSelectedItem.getCells();
+              console.log(cells);
+              return [
+                oSelectedItem.getBindingContext().getProperty("BNAME"),
+                oSelectedItem.getBindingContext().getProperty("CODE"),
+                oSelectedItem.getBindingContext().getProperty("VALUE"),
+                oSelectedItem.getBindingContext().getProperty("CVALUE"),
+                oSelectedItem.getBindingContext().getProperty("CUNIT"),
+                oSelectedItem.getBindingContext().getProperty("DATATYPE"),
+                oSelectedItem.getBindingContext().getProperty("TABLENAME"),
+                oSelectedItem.getBindingContext().getProperty("MULTI_CHOICE")
+            ]
+  
+            } else {
+  
+            }
+          });
+          console.log(aSelectedIds);
+          return aSelectedIds;
+  
+        },
       onDeletePress: function () {
  
         let aItems = this.byId("createTypeTable").getSelectedItems();
@@ -248,6 +258,103 @@ sap.ui.define(
             }
           });
         });
+      },
+      onUpdate : function(){
+         
+        var BNAME =  this.getView().byId("inp1").getValue();
+        var CODE =  this.getView().byId("inp2").getValue();
+        var VALUE =  this.getView().byId("inp3").getValue();
+        var CVALUE =  this.getView().byId("inp4").getValue();
+        var CUNIT =  this.getView().byId("inp5").getValue();
+        var DATATYPE =  this.getView().byId("inp6").getValue();
+        var TABLENAME =  this.getView().byId("inp7").getValue();
+        var MULTI_CHOICE =  this.getView().byId("inp8").getValue();
+       
+        let data = {
+          BNAME: BNAME,
+          CODE :CODE,
+          VALUE: VALUE,
+          CVALUE:CVALUE,
+          CUNIT:CUNIT,  
+          DATATYPE:DATATYPE,
+          TABLENAME:TABLENAME,
+          MULTI_CHOICE:MULTI_CHOICE
+ 
+        };
+        console.log(data);
+ 
+        
+        var oView = this.getView();
+        var JsonData = JSON.stringify(data)
+        let EndPoint = "/odata/v4/nautical/MAS/"+ data.BNAME;
+        console.log(EndPoint);
+        fetch(EndPoint, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JsonData
+        })
+          .then(function (res) {
+           
+            if (res.ok) {
+              // location.reload();
+              console.log("Entry updated successfully");
+              MessageToast.show(`Entry updated successfully`);
+              oView.getModel().refresh();
+              oView.byId("createTypeTable").setVisible(true)
+       
+             oView.byId("mainPageFooter2").setVisible(false);
+             oView.byId("updateTypeTable").setVisible(false);
+             
+ 
+            }
+            else {
+              res.json().then((data) => {
+                if (data && data.error && data.error.message) {
+                    // Show the error message from the backend
+                    MessageToast.show(data.error.message);
+                    return
+                }
+                });
+            }
+          })
+          .catch(function (err) {
+            console.log("error", err);
+          })},
+
+      pressEdit : function(){
+        
+        if(aSelectedIds.length){
+          if(aSelectedIds.length > 1){
+             MessageToast.show("Please select one row");
+             return
+          }
+        }else {
+          MessageToast.show("Please select a row");
+          return;
+        }
+ 
+        this.getView().byId("createTypeTable").setVisible(false);
+        let u1 = aSelectedIds[0][0];
+        let u2 = aSelectedIds[0][1];
+        let u3 = aSelectedIds[0][2];
+        let u4 = aSelectedIds[0][3];
+        let u5 = aSelectedIds[0][4];
+        let u6 = aSelectedIds[0][5];
+        let u7 = aSelectedIds[0][6];
+        this.getView().byId("inp1").setText(u1);
+        this.getView().byId("inp2").setValue(u2);
+        this.getView().byId("inp3").setValue(u3);
+        this.getView().byId("inp4").setValue(u4);
+        this.getView().byId("inp5").setValue(u5);
+        this.getView().byId("inp6").setValue(u6);
+        this.getView().byId("inp7").setValue(u7);
+        this.getView().byId('updateTypeTable').setVisible(true);
+        // console.log(aSelectedIds[0][0], aSelectedIds[0][1]);
+        this.getView().byId("mainPageFooter2").setVisible(true);
+ 
+        // this.onUpdate(code, desc);
       }
     });
   }
