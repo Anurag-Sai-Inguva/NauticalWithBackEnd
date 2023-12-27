@@ -449,7 +449,7 @@ font-size: small;
     color: rgb(194, 65, 65);
 }
 
-/*Change voyage page*/
+/*Change voyage page(anurag)*/
 .techdropdown{
     margin-left: 320px;
 }
@@ -458,3 +458,21 @@ font-size: small;
     margin-left: 620px;
     margin-top: -50px;
 }
+
+.changeVoyageHeadings{
+    font-weight: light;
+    font-size: 15px;
+    margin-top: 30px;
+}
+.footerTableHeading{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+ 
+.footerCostplanTables{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+ 

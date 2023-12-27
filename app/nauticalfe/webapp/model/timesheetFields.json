@@ -1,0 +1,30 @@
+{
+    "fields": [
+        {
+            "LegId": 2,
+            "PortCode": 21,
+            "EventNo": 1,
+            "EventType": "Passenger",
+            "NormalText": "Random Text",
+            "Status":"C",
+            "PlannedStartDate": "2023-12-11",
+            "PlannedStartTime": "11:00:00",
+            "PlannedEndDate": "2023-12-15",
+            "PlannedEndTime":"13:00:00",
+            "EventStatus":"Completed"
+        },
+        {
+            "LegId": 1,
+            "PortCode": 19,
+            "EventNo": 2,
+            "EventType": "Passenger",
+            "NormalText": "Random Text",
+            "Status":"N",
+            "PlannedStartDate": "2024-12-11",
+            "PlannedStartTime": "11:00:00",
+            "PlannedEndDate": "2024-12-15",
+            "PlannedEndTime":"13:00:00",
+            "EventStatus":"Incomplete"
+        }
+    ]
+}

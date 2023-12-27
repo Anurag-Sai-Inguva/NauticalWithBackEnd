@@ -5,9 +5,6 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:l="sap.ui.layout"
       
     xmlns="sap.m">
-    
-    
-    
         <Bar id="navbar">
         <contentLeft>
             <Button id="Button1" text="Execute"  />
@@ -548,8 +545,8 @@
 
 
      <!-- item details start from here  -->
-        <Button id="Hide1" icon="sap-icon://minimize"></Button>
-        <Text id="header2" text="Item Details"></Text>
+        <Button id="Hide1" icon="sap-icon://minimize" class="changeVoyageHeadings" ></Button>
+        <Text class="changeVoyageHeadings" text="Item Details"></Text>
             <Bar id="HBox20">
                 <contentLeft>
                     <Button id="ButtonA" text="Cost Plan/Actual" press="handleNavToPanelA" />
@@ -565,20 +562,17 @@
 
             <!-- Panel for ButtonA -->
             <Panel id="panelA" height="600px" class="navigationPanel">
-                   <Text id="_IDGenText14" text="Plan Details" class="footerheading"></Text>
+                   <Text id="_IDGenText14" text="Plan Details" class="footerTableHeading"></Text>
                     
-                    <Table id="Table5" class="costplantables">
+                    <Table id="Table5" class="footerCostplanTables" width="95%" mode="MultiSelect">
                         <columns>
-                            <Column id="_IDGenColumn35">
-                                <Label id="_IDGenLel47" text=" " />
-                            </Column>
-                            <Column id="_IDGenColu36" >
+                            <Column id="_IDGenColu36" width="80px">
                                 <Label id="abel48" text="LegId" />
                             </Column>
                             <Column id="_IDGemn37" >
                                 <Label id="_IDbel49" text="Cost Code"/>
                             </Column>
-                            <Column id="_IDGemn38" >
+                            <Column id="_IDGemn38" width="80px" >
                                 <Label id="_IDGenLabel50" text="Select"/>
                             </Column>
                             <Column id="_IDGenColumn39" >
@@ -600,7 +594,6 @@
                         <items>
                             <ColumnListItem id="_IDGenColumnListItem7">
                                 <cells>
-                                    <CheckBox id="_IDGenCheckBox3"></CheckBox>
                                     <Text id="_IDGenText15" text=""/>
                                     <Text id="_IDGenText16" text=""/>
                                     <Button id="_IDGenButton16" icon="sap-icon://copy" press="showCharges"/>
@@ -618,18 +611,15 @@
                         </items>
                     </Table>
                     <Text id="_IDGenText18" text="Actual Details" class="footerheading"></Text>
-                    <Table id="Table6"  class="costplantables">
+                    <Table id="Table6"  class="footerCostplanTables" width="95%" mode="MultiSelect">
                         <columns>
-                            <Column id="_IDGenColumn44">
-                                <Label id="_IDGenLabel56" text=" " />
-                            </Column>
-                            <Column id="_IDGenColumn45" >
+                            <Column id="_IDGenColumn45"  width="80px" >
                                 <Label id="_IDGenLabel57" text="LegId" />
                             </Column>
                             <Column id="_IDGenColumn46" >
                                 <Label id="_IDGenLabel58" text="Cost Code"/>
                             </Column>
-                            <Column id="_IDGenColumn47" >
+                            <Column id="_IDGenColumn47" width="80px">
                                 <Label id="_IDGenLabel59" text="Select"/>
                             </Column>
                             <Column id="_IDGenColumn48" >
@@ -644,14 +634,13 @@
                              <Column id="_IDGenColumn51" >
                                 <Label id="_IDGenLabel63" text="Currency"/>
                             </Column>
-                            <Column id="_IDGenColumn52" >
+                            <Column id="_IDGenColumn52"  >
                                 <Label id="_IDGenLabel64" text=" "/>
                             </Column>
                         </columns>
                         <items>
                         <ColumnListItem id="_IDGenColumnListItem8">
                                 <cells>
-                                    <CheckBox id="_IDGenCheckBox4"></CheckBox>
                                     <Text id="_IDGenText19" text=""/>
                                     <Text id="_IDGenText20" text=""/>
                                     <Button id="_IDGenButton17" icon="sap-icon://copy" press="showCharges"/>
@@ -674,8 +663,8 @@
             <Panel id="panelB" height="600px" class="navigationPanel">
                   <HBox class="footeractualplanbutton" width= "100%">
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
-                            <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton"/>
-                            <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton"/>
+                            <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton" press="sortascLegId_Tab1"/>
+                            <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton" press="sortdescLegId_Tab1"/>
                             <Button icon="sap-icon://search"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://filter" class="footeractualplanbutton"/>
@@ -691,44 +680,92 @@
                             <Button icon="sap-icon://message-information" class="footeractualplanbutton"/>
                             <Button icon="sap-icon://full-screen" class="footeractualplanbutton"/>
                         </HBox>
-                        <Table width="100%" class="costplantables">
-                            <columns>
-                                <Column>
-                                    <Label text="LegId"/>
-                                </Column>
-                                <Column>
-                                    <Label text="Event No."/>
-                                </Column>
-                                <Column>
-                                    <Label text="Event Type"/>
-                                </Column>
-                                <Column width="200px">
-                                    <Label text="Normal Text"/>
-                                </Column>
-                                <Column>
-                                    <Label text="Status"/>
-                                </Column>
-                                <Column width="120px">
-                                    <Label text="Planned Start Date"/>
-                                </Column>
-                                <Column width="120px">
-                                    <Label text="Planned Start Time"/>
-                                </Column>
-                                <Column width="120px">
-                                    <Label text="Planned End Date"/>
-                                </Column>
-                                <Column width="120px">
-                                    <Label text="Planned End Time"/>
-                                </Column>
-                                <Column>
-                                    <Label text="Event Status Text"/>
-                                </Column>
-                            </columns>
-                        </Table>
+                        <ui:Table width="95%" class="costplantables" rows="{tsFields>/fields}" id="tstab1">
+                           	<ui:columns>
+                            <ui:Column
+                                id="name">
+                                <Label text="LegId" />
+                                <ui:template>
+                                    <Text text="{tsFields>LegId}"/>
+                                </ui:template>
+                            </ui:Column>
+                             <ui:Column
+                                >
+                                <Label text="Port Code" />
+                                <ui:template>
+                                    <Text text="{tsFields>PortCode}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                id="categories"
+                                >
+                                <Label text="Event No" />
+                                <ui:template>
+                                    <Text text="{tsFields>EventNo}"/>
+                                </ui:template>
+                            </ui:Column>
+                             <ui:Column
+                                >
+                                <Label text="Event Type" />
+                                <ui:template>
+                                    <Text text="{tsFields>EventType}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Normal Text" />
+                                <ui:template>
+                                    <Text text="{tsFields>NormalText}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Status" />
+                                <ui:template>
+                                    <Text text="{tsFields>Status}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Planned Start Date" />
+                                <ui:template>
+                                    <Text text="{tsFields>PlannedStartDate}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Planned Start Time" />
+                                <ui:template>
+                                    <Text text="{tsFields>PlannedStartTime}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Planned End Date" />
+                                <ui:template>
+                                    <Text text="{tsFields>PlannedEndDate}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Planned End Time" />
+                                <ui:template>
+                                    <Text text="{tsFields>PlannedEndTime}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Event Status Text" />
+                                <ui:template>
+                                    <Text text="{tsFields>EventStatus}"/>
+                                </ui:template>
+                            </ui:Column>
+					</ui:columns>
+                        </ui:Table>
                          <HBox class="footeractualplanbutton">
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
-                            <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton"/>
-                            <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton"/>
+                            <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton" press="sortascLegId_Tab2"/>
+                            <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton" press="sortdescLegId_Tab2"/>
                             <Button icon="sap-icon://search"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://filter" class="footeractualplanbutton"/>
@@ -744,40 +781,85 @@
                             <Button icon="sap-icon://message-information" class="footeractualplanbutton"/>
                             <Button icon="sap-icon://full-screen" class="footeractualplanbutton"/>
                         </HBox>
-                        <Table width="100%" class="costplantables">
-                            <columns>
-                                <Column>
-                                    <Label text="LegId"/>
-                                </Column>
-                                <Column>
-                                    <Label text="Event No."/>
-                                </Column>
-                                <Column>
-                                    <Label text="Event Type"/>
-                                </Column>
-                                <Column width="200px">
-                                    <Label text="Normal Text"/>
-                                </Column>
-                                <Column>
-                                    <Label text="Status"/>
-                                </Column>
-                                <Column width="120px">
-                                    <Label text="Planned Start Date"/>
-                                </Column>
-                                <Column width="120px">
-                                    <Label text="Planned Start Time"/>
-                                </Column>
-                                <Column width="120px">
-                                    <Label text="Planned End Date"/>
-                                </Column>
-                                <Column width="120px">
-                                    <Label text="Planned End Time"/>
-                                </Column>
-                                <Column>
-                                    <Label text="Event Status Text"/>
-                                </Column>
-                            </columns>
-                        </Table>
+                         <ui:Table width="95%" class="costplantables" rows="{tsFields>/fields}" id="tstab2">
+                           	<ui:columns>
+                            <ui:Column>
+                                <Label text="LegId" />
+                                <ui:template>
+                                    <Text text="{tsFields>LegId}"/>
+                                </ui:template>
+                            </ui:Column>
+                             <ui:Column >
+                                <Label text="Port Code" />
+                                <ui:template>
+                                    <Text text="{tsFields>PortCode}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Event No" />
+                                <ui:template>
+                                    <Text text="{tsFields>EventNo}"/>
+                                </ui:template>
+                            </ui:Column>
+                             <ui:Column
+                                >
+                                <Label text="Event Type" />
+                                <ui:template>
+                                    <Text text="{tsFields>EventType}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Normal Text" />
+                                <ui:template>
+                                    <Text text="{tsFields>NormalText}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Status" />
+                                <ui:template>
+                                    <Text text="{tsFields>Status}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Planned Start Date" />
+                                <ui:template>
+                                    <Text text="{tsFields>PlannedStartDate}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Planned Start Time" />
+                                <ui:template>
+                                    <Text text="{tsFields>PlannedStartTime}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Planned End Date" />
+                                <ui:template>
+                                    <Text text="{tsFields>PlannedEndDate}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Planned End Time" />
+                                <ui:template>
+                                    <Text text="{tsFields>PlannedEndTime}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column
+                                >
+                                <Label text="Event Status Text" />
+                                <ui:template>
+                                    <Text text="{tsFields>EventStatus}"/>
+                                </ui:template>
+                            </ui:Column>
+					</ui:columns>
+                        </ui:Table>
             </Panel>
 
         </NavContainer>
