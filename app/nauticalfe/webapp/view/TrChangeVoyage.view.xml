@@ -663,8 +663,8 @@
             <Panel id="panelB" height="600px" class="navigationPanel">
                   <HBox class="footeractualplanbutton" width= "100%">
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
-                            <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton" press="sortascLegId_Tab1"/>
-                            <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton" press="sortdescLegId_Tab1"/>
+                            <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton" press="sortOptionsTab1Asc "/>
+                            <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton" press="sortOptionsTab1Desc"/>
                             <Button icon="sap-icon://search"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://filter" class="footeractualplanbutton"/>
@@ -764,8 +764,8 @@
                         </ui:Table>
                          <HBox class="footeractualplanbutton">
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
-                            <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton" press="sortascLegId_Tab2"/>
-                            <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton" press="sortdescLegId_Tab2"/>
+                            <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton" press="sortOptionsTab2Asc"/>
+                            <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton" press="sortOptionsTab2Desc"/>
                             <Button icon="sap-icon://search"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://filter" class="footeractualplanbutton"/>

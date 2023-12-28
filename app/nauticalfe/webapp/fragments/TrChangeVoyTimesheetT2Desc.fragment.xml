@@ -1,0 +1,14 @@
+ <core:FragmentDefinition xmlns="sap.m" xmlns:unified="sap.ui.unified" xmlns:core="sap.ui.core">
+    <Dialog id="sortT2DescOptions" class="sapUiContentPadding" contentWidth="450px" contentHeight="200px" title="Sort Order(T2 desc)" >
+        <content>
+           <Text text="Column Set"></Text>
+ 
+            <VBox class="TimesheetPopup">
+                <Button text="LegId" press="sortdescLegId_Tab2" width="160px"></Button>
+                <Button text="PortCode" press="sortdescPortCode_Tab2" width="160px"></Button>
+                <Button text="Event No" press="sortdescEventNo_Tab2" width="160px"></Button>
+                <Button text="Status" press="sortdescStatus_Tab2" width="160px"></Button>
+            </VBox>
+             </content>
+    </Dialog>
+</core:FragmentDefinition>

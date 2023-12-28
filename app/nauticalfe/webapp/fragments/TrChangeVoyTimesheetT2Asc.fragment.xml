@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:unified="sap.ui.unified" xmlns:core="sap.ui.core">
+    <Dialog id="sortT2AscOptions" class="sapUiContentPadding" contentWidth="450px" contentHeight="200px" title="Sort Order(T2 asc)" >
+        <content>
+           <Text text="Column Set"></Text>
+             <VBox class="TimesheetPopup">
+                <Button text="LegId" press="sortascLegId_Tab2" width="160px"></Button>
+                <Button text="PortCode" press="sortascPortCode_Tab2" width="160px"></Button>
+                <Button text="Event No" press="sortascEventNo_Tab2" width="160px"></Button>
+                <Button text="Status" press="sortascStatus_Tab2" width="160px"></Button>
+                <!-- <Button text="Planned Start Date" press="sortascLegId_Tab1" width="160px"></Button>
+                <Button text="Planned Start Time" press="sortascLegId_Tab1" width="160px"></Button>
+                <Button text="Planned End Date" press="sortascLegId_Tab1" width="160px"></Button>
+                <Button text="Planned End Time" press="sortascLegId_Tab1" width="160px"></Button> -->
+            </VBox>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

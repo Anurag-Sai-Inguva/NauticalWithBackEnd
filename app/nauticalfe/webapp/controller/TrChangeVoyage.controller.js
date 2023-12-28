@@ -4,10 +4,11 @@ sap.ui.define(
         "sap/ui/core/Fragment",
         // "sap/ui/core/routing/History",
         "sap/ui/core/SortOrder",
-        "sap/ui/model/odata/v2/ODataModel"
+        "sap/ui/model/odata/v2/ODataModel",
+        "sap/m/MessageToast"
 
     ],
-    function (BaseController, Fragment, ODataModel, SortOrder) {
+    function (BaseController, Fragment, ODataModel, SortOrder,MessageToast) {
         "use strict";
 
         //   var SortOrder = CoreLibrary.SortOrder;
@@ -131,13 +132,108 @@ sap.ui.define(
                     this.byId('voyageCharges').open()
                 }
             },
+
+            //timesheet tab1 asc sorting fragment
+            sortOptionsTab1Asc: function () {
+                var oView = this.getView();
+                if (!this.byId('sortT1AscOptions')) {
+                    Fragment.load({
+                        name: "nauticalfe.fragments.TrChangeVoyTimesheetT1Asc",
+                        controller: this,
+                        id: oView.getId()
+                    }).then(function (oDialog) {
+                        oDialog.open();
+                    });
             
+                } else {
+                    this.byId('sortT1AscOptions').open();
+                }
+            },
             exitDialog: function () {
-                var oDialog = this.byId('voyageCharges');
+                var oDialog = this.byId('sortT1AscOptions');
                 if (oDialog) {
                     oDialog.close();
                 }
+               
             },
+
+            //timesheet tab2 asc sorting fragment
+            sortOptionsTab2Asc: function () {
+                var oView = this.getView();
+                if (!this.byId('sortT2AscOptions')) {
+                    Fragment.load({
+                        name: "nauticalfe.fragments.TrChangeVoyTimesheetT2Asc",
+                        controller: this,
+                        id: oView.getId()
+                    }).then(function (oDialog) {
+                        oDialog.open();
+                    });
+            
+                } else {
+                    this.byId('sortT2AscOptions').open();
+                }
+            },
+            exitDialog: function () {
+                var oDialog = this.byId('sortT2AscOptions');
+                if (oDialog) {
+                    oDialog.close();
+                }
+               
+            },
+
+            //timesheet tab1 desc sorting fragment
+            sortOptionsTab1Desc: function () {
+                var oView = this.getView();
+                if (!this.byId('sortT1DescOptions')) {
+                    Fragment.load({
+                        name: "nauticalfe.fragments.TrChangeVoyTimesheetT1Desc",
+                        controller: this,
+                        id: oView.getId()
+                    }).then(function (oDialog) {
+                        oDialog.open();
+                    });
+            
+                } else {
+                    this.byId('sortT1DescOptions').open();
+                }
+            },
+            
+            
+            exitDialog: function () {
+                var oDialog = this.byId('sortT1DescOptions');
+                if (oDialog) {
+                    oDialog.close();
+                }
+               
+            },
+
+            //timesheet tab2 desc sorting fragment
+            sortOptionsTab2Desc: function () {
+                var oView = this.getView();
+                if (!this.byId('sortT2DescOptions')) {
+                    Fragment.load({
+                        name: "nauticalfe.fragments.TrChangeVoyTimesheetT2Desc",
+                        controller: this,
+                        id: oView.getId()
+                    }).then(function (oDialog) {
+                        oDialog.open();
+                    });
+            
+                } else {
+                    this.byId('sortT2DescOptions').open();
+                }
+            },
+            
+            
+            exitDialog: function () {
+                var oDialog = this.byId('sortT2DescOptions');
+                if (oDialog) {
+                    oDialog.close();
+                }
+               
+            },
+
+            //2 tables sorting below
             sortascLegId_Tab1: function () {
                 var oTable = this.getView().byId("tstab1")
                 var oBinding = oTable.getBinding("rows");
@@ -147,19 +243,51 @@ sap.ui.define(
                     var bDescending = false;
                     var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
                     oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in ascending order according to LegId");
                 }
             },
-            sortdescLegId_Tab1:function(){
+            sortascPortCode_Tab1:function(){
                 var oTable = this.getView().byId("tstab1")
                 var oBinding = oTable.getBinding("rows");
                 console.log(oTable,oBinding)
                 if(oBinding && oBinding.sort) {
-                    var sSortField = "LegId"
-                    var bDescending = true;
+                    var sSortField = "PortCode"
+                    var bDescending = false;
                     var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
                     oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in ascending order according to PortCode");
                 }
             },
+            sortascEventNo_Tab1:function(){
+                var oTable = this.getView().byId("tstab1")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "EventNo"
+                    var bDescending = false;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in ascending order according to EventNo");
+                }
+            },
+            sortascStatus_Tab1:function(){
+                var oTable = this.getView().byId("tstab1")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "Status"
+                    var bDescending = false;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in ascending order according to Status");
+                }
+            },
+
+            // ascending sorting for table2
             sortascLegId_Tab2: function () {
                 var oTable = this.getView().byId("tstab2")
                 var oBinding = oTable.getBinding("rows");
@@ -169,8 +297,105 @@ sap.ui.define(
                     var bDescending = false;
                     var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
                     oBinding.sort(oSorter);
+                    var oDialog = this.byId('sortT2AscOptions');
+                    oDialog.close();
+                    MessageToast.show("Sorted table in ascending order according to LegId");
                 }
             },
+            sortascPortCode_Tab2:function(){
+                var oTable = this.getView().byId("tstab2")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "PortCode"
+                    var bDescending = false;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in ascending order according to PortCode");
+                }
+            },
+            sortascEventNo_Tab2:function(){
+                var oTable = this.getView().byId("tstab2")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "EventNo"
+                    var bDescending = false;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in ascending order according to EventNo");
+                }
+            },
+            sortascStatus_Tab2:function(){
+                var oTable = this.getView().byId("tstab2")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "Status"
+                    var bDescending = false;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in ascending order according to Status");
+                }
+            },
+
+            // descending for tab1
+            sortdescLegId_Tab1:function(){
+                var oTable = this.getView().byId("tstab1")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "LegId"
+                    var bDescending = true;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    MessageToast.show("Sorted table in Descending order according to LegId");
+                }
+            },
+            sortdescPortCode_Tab1:function(){
+                var oTable = this.getView().byId("tstab1")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "PortCode"
+                    var bDescending = true;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in Descending order according to PortCode");
+                }
+            },
+            sortdescEventNo_Tab1:function(){
+                var oTable = this.getView().byId("tstab1")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "EventNo"
+                    var bDescending = true;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in Descending order according to EventNo");
+                }
+            },
+            sortdescStatus_Tab1:function(){
+                var oTable = this.getView().byId("tstab1")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "Status"
+                    var bDescending = true;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in Descending order according to Status");
+                }
+            },
+
+            //descending for tab2
             sortdescLegId_Tab2:function(){
                 var oTable = this.getView().byId("tstab2")
                 var oBinding = oTable.getBinding("rows");
@@ -180,8 +405,48 @@ sap.ui.define(
                     var bDescending = true;
                     var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
                     oBinding.sort(oSorter);
+                    MessageToast.show("Sorted table in Descending order according to LegId");
                 }
-            }
+            },
+            sortdescPortCode_Tab2:function(){
+                var oTable = this.getView().byId("tstab2")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "PortCode"
+                    var bDescending = true;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in Descending order according to PortCode");
+                }
+            },
+            sortdescEventNo_Tab2:function(){
+                var oTable = this.getView().byId("tstab2")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "EventNo"
+                    var bDescending = true;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in Descending order according to EventNo");
+                }
+            },
+            sortdescStatus_Tab2:function(){
+                var oTable = this.getView().byId("tstab2")
+                var oBinding = oTable.getBinding("rows");
+                console.log(oTable,oBinding)
+                if(oBinding && oBinding.sort) {
+                    var sSortField = "Status"
+                    var bDescending = true;
+                    var oSorter = new sap.ui.model.Sorter(sSortField, bDescending);
+                    oBinding.sort(oSorter);
+                    this.exitDialog()
+                    MessageToast.show("Sorted table in Descending order according to Status");
+                }
+            },
 
         });
     }
