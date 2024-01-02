@@ -10,7 +10,7 @@ xmlns:form="sap.ui.layout.form"
     <GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Nautical" subheader="Create Voyage"
                 press=".onPress" >
         <TileContent id="_IDGenTileContent1">
-        <ImageContent id="_IDGenImageContent1" src="../images/pic.png"></ImageContent>
+        <ImageContent id="_IDGenImageContent1" src="./images/pic.png"></ImageContent>
         </TileContent>
     </GenericTile>
  
@@ -22,7 +22,7 @@ xmlns:form="sap.ui.layout.form"
  
     <GenericTile id="_IDGenGenericTile23" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Nautical" subheader="Dashboard" press=".onPress3">
         <TileContent id="_IDGenTileContent3">
-        <ImageContent id="_IDGenImageContent2" src="../images/pic.png"></ImageContent>
+        <ImageContent id="_IDGenImageContent2" src="./images/pic.png"></ImageContent>
         </TileContent>
     </GenericTile>
  

@@ -665,20 +665,26 @@
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton" press="sortOptionsTab1Asc "/>
                             <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton" press="sortOptionsTab1Desc"/>
-                            <Button icon="sap-icon://search"  class="footeractualplanbutton"/>
+                            <Button icon="sap-icon://search"  class="footeractualplanbutton" press="showSearchFieldsTab1"/>
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://filter" class="footeractualplanbutton"/>
                             <Button icon="sap-icon://slim-arrow-down" class="footeractualplanbuttonfilter"/>
                             <Button icon="sap-icon://sum"  class="footeractualplanbutton"/>
-                            <Button icon="../images//subtotals.png"  class="footeractualplanbutton"/>
+                            <Button icon="./images//subtotals.png"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://print"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://detail-view"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://slim-arrow-down" class="footeractualplanbuttonfilter"/>
-                            <Button icon="../images/Export.png"  class="footeractualplanbutton"/>
+                            <Button icon="./images/Export.png"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://slim-arrow-down" class="footeractualplanbuttonfilter"/>
                             <Button icon="sap-icon://table-chart"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://message-information" class="footeractualplanbutton"/>
                             <Button icon="sap-icon://full-screen" class="footeractualplanbutton"/>
+                        </HBox>
+                        <HBox id="valueSearchTab1" class="InputSearch" visible="false">
+                            <Label text="Enter LegId for searching"/>
+                            <Input id="searchFieldTab1"></Input>
+                            <Button text="Search" press="searchLegIdTab1"/>
+                            <Button text="Refresh" press="refreshTab1"/>
                         </HBox>
                         <ui:Table width="95%" class="costplantables" rows="{tsFields>/fields}" id="tstab1">
                            	<ui:columns>
@@ -766,20 +772,25 @@
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://sort-ascending"  class="footeractualplanbutton" press="sortOptionsTab2Asc"/>
                             <Button icon="sap-icon://sort-descending"  class="footeractualplanbutton" press="sortOptionsTab2Desc"/>
-                            <Button icon="sap-icon://search"  class="footeractualplanbutton"/>
+                            <Button icon="sap-icon://search"  class="footeractualplanbutton" press="showSearchFieldsTab2"/>
                             <Button icon="sap-icon://zoom-in"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://filter" class="footeractualplanbutton"/>
                             <Button icon="sap-icon://slim-arrow-down" class="footeractualplanbuttonfilter"/>
                             <Button icon="sap-icon://sum"  class="footeractualplanbutton"/>
-                            <Button icon="../images/subtotals.png"  class="footeractualplanbutton"/>
+                            <Button icon="./images/subtotals.png"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://print"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://detail-view"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://slim-arrow-down" class="footeractualplanbuttonfilter"/>
-                            <Button icon="../images/Export.png"  class="footeractualplanbutton"/>
+                            <Button icon="./images/Export.png"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://slim-arrow-down" class="footeractualplanbuttonfilter"/>
                             <Button icon="sap-icon://table-chart"  class="footeractualplanbutton"/>
                             <Button icon="sap-icon://message-information" class="footeractualplanbutton"/>
                             <Button icon="sap-icon://full-screen" class="footeractualplanbutton"/>
+                        </HBox>
+                        <HBox id="valueSearchTab2" class="InputSearch" visible="false">
+                            <Label text="Enter LegId for searching"/>
+                            <Input id="searchFieldTab2"></Input>
+                            <Button text="Search" press="searchLegIdTab2"/>
                         </HBox>
                          <ui:Table width="95%" class="costplantables" rows="{tsFields>/fields}" id="tstab2">
                            	<ui:columns>

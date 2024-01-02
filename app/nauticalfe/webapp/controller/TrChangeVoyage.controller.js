@@ -5,10 +5,12 @@ sap.ui.define(
         // "sap/ui/core/routing/History",
         "sap/ui/core/SortOrder",
         "sap/ui/model/odata/v2/ODataModel",
-        "sap/m/MessageToast"
+        "sap/m/MessageToast",
+        "sap/ui/model/Filter",
+        "sap/ui/model/FilterOperator"
 
     ],
-    function (BaseController, Fragment, ODataModel, SortOrder,MessageToast) {
+    function (BaseController, Fragment, ODataModel, SortOrder,MessageToast,Filter,FilterOperator) {
         "use strict";
 
         //   var SortOrder = CoreLibrary.SortOrder;
@@ -447,6 +449,33 @@ sap.ui.define(
                     MessageToast.show("Sorted table in Descending order according to Status");
                 }
             },
+
+            //search function for table1
+            showSearchFieldsTab1:function(){
+                this.byId("valueSearchTab1").setVisible(true)
+            },
+            searchLegIdTab1:function(){
+                var sLegId = this.byId("searchFieldTab1").getValue();
+                var oTable = this.byId("tstab1");
+                var oBinding = oTable.getBinding("rows")
+                var oFilter = new Filter("LegId", FilterOperator.EQ, sLegId);
+                oBinding.filter([oFilter]);
+            },
+            refreshTab1:function(){
+                
+            },
+
+            //search function for table2
+            showSearchFieldsTab2:function(){
+                this.byId("valueSearchTab2").setVisible(true)
+            },
+            searchLegIdTab2:function(){
+                var sLegId = this.byId("searchFieldTab2").getValue();
+                var oTable = this.byId("tstab2");
+                var oBinding = oTable.getBinding("rows")
+                var oFilter = new Filter("LegId", FilterOperator.EQ, sLegId);
+                oBinding.filter([oFilter]);
+            }
 
         });
     }
