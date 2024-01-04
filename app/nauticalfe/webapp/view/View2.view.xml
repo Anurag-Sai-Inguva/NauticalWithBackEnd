@@ -77,14 +77,14 @@ xmlns:form="sap.ui.layout.form"
         <FlexBox id="_IDGenFlexBox3" >
           <Button id="_IDGenButton1" class="clr tablebtn" text="Create Voyage"  press="onChangeVoyage" />
           <Button id="_IDGenButton2" class="tablebtn" text="Freight Simulator" press="onCreateVoyage" />
-          <Button id="_IDGenButton3" class="tablebtn" text="Calculate" />
+          <Button id="_IDGenButton3" class="tablebtn" text="Calculate" press="getPortDetails" />
           <Button id="_IDGenButton4" class="tablebtn" icon="sap-icon://refresh" />
         </FlexBox>
         
         
       </HBox>
       
-        <Table id="table" class="tableLayout" items="{Vdata>/voyageData}" growing="true" growingThreshold="10"  >
+        <Table id="table" class="tableLayout" items="{testPorts>/ports}" growing="true" growingThreshold="10"  >
           <columns>
            <Column id="heading1" >
              <Text id="text1" text="Port Name"/>
@@ -125,16 +125,16 @@ xmlns:form="sap.ui.layout.form"
           </columns>
 
          <items>
-           <ColumnListItem id="coloumnlist"  >
+           <ColumnListItem id="coloumnlist">
              <cells>
-              <Input id="field1" value ="{Vdata>Port Name}"/>
-              <Input id="field8" value ="{Vdata>Distance}"/>
-              <Input id="field2" value ="{Vdata>Weather}"/>
-              <Input id="field3" value ="{Vdata>Cargo Size}"/>
-              <Input id="field4" value ="{Vdata>Unit}"/>
-              <Input id="field5" value ="{Vdata>Speed}"/>
-               <Input id="field6" value ="{Vdata>Sea Days}"/>
-              <Input id="field7" value ="{Vdata>Port Days}"/>
+              <Input id="field1" value ="{testPorts>Port Name}"/>
+              <Input id="field2" value ="{testPorts>Distance}"/>
+              <Input id="field3" value ="{testPorts>Weather}"/>
+              <Input id="field4" value ="{testPorts>Cargo Size}"/>
+              <Input id="field5" value ="{testPorts>Unit}"/>
+              <Input id="field6" value ="{testPorts>Speed}"/>
+              <Input id="field7" value ="{testPorts>Sea Days}"/>
+              <Input id="field8" value ="{testPorts>Port Days}"/>
               
               <DatePicker id="DP4"	placeholder="Enter Date"	change="handleChange"	class="sapUiSmallMarginBottom" width="auto" />
                 <TimePicker id="TP1" change="handleChange" input="handleInput" formatPattern="HH:mm:ss"></TimePicker>

@@ -82,6 +82,10 @@
       "tsFields": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/timesheetFields.json"
+      },
+      "testPorts":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/frieghtSimulator.json"
       }
     },
     "resources": {

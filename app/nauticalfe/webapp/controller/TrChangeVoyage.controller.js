@@ -7,10 +7,14 @@ sap.ui.define(
         "sap/ui/model/odata/v2/ODataModel",
         "sap/m/MessageToast",
         "sap/ui/model/Filter",
-        "sap/ui/model/FilterOperator"
+        "sap/ui/model/FilterOperator",
+        "sap/m/MessageBox",
+        "sap/ui/core/util/Export",
+        "sap/ui/export/ExportUtils",
+        "sap/ui/core/util/ExportTypeCSV",
 
     ],
-    function (BaseController, Fragment, ODataModel, SortOrder,MessageToast,Filter,FilterOperator) {
+    function (BaseController, Fragment, ODataModel, SortOrder,MessageToast,Filter,FilterOperator,MessageBox,Export,ExportTypeCSV,ExportUtils) {
         "use strict";
 
         //   var SortOrder = CoreLibrary.SortOrder;
@@ -475,8 +479,168 @@ sap.ui.define(
                 var oBinding = oTable.getBinding("rows")
                 var oFilter = new Filter("LegId", FilterOperator.EQ, sLegId);
                 oBinding.filter([oFilter]);
-            }
+            },
 
+            //export dropdown
+            tab1exp: function () {
+                var oView = this.getView(),
+                    oButton = oView.byId("bt1");
+            
+                if (!this._oMenuFragment) {
+                    Fragment.load({
+                        name: "nauticalfe.fragments.TrChangeVoyageTStab1fileExport",
+                        id: oView.getId(),
+                        controller: this
+                    }).then(function (oMenu) {
+                        oMenu.openBy(oButton);
+                        this._oMenuFragment = oMenu;
+                    }.bind(this)).catch(function (oError) {
+                        MessageBox.error("Error while loading the fragment: " + oError);
+                    });
+                } else {
+                    this._oMenuFragment.openBy(oButton);
+                }
+            },
+            tab2exp: function () {
+                var oView = this.getView(),
+                    oButton = oView.byId("bt2");
+            
+                if (!this._oMenuFragment) {
+                    Fragment.load({
+                        name: "nauticalfe.fragments.TrChangeVoyageTStab2fileExport",
+                        id: oView.getId(),
+                        controller: this
+                    }).then(function (oMenu) {
+                        oMenu.openBy(oButton);
+                        this._oMenuFragment = oMenu;
+                    }.bind(this)).catch(function (oError) {
+                        MessageBox.error("Error while loading the fragment: " + oError);
+                    });
+                } else {
+                    this._oMenuFragment.openBy(oButton);
+                }
+            },
+            tab1spreadsheet:function(){
+                console.log('entered tab1')
+                var oTable = this.getView().byId("tstab1"); // Replace with your actual table ID
+                var oModel = this.getView().getModel("tsFields"); // Replace with your actual model name
+            
+                if (oTable && oModel) {
+                    var oExport = new Export({
+                        exportType: new sap.ui.core.util.ExportTypeCSV({
+                            separatorChar: ","
+                        }),
+                        models: oModel,
+                        rows: {
+                            path: "/fields" 
+                        },
+                        columns: [
+                            { name: "LegId", template: { content: "{LegId}" } },
+                            { name: "PortCode", template: { content: "{PortCode}" } },
+                            { name: "EventNo", template: { content: "{EventNo}" } },
+                            { name: "EventType", template: { content: "{EventType}" } },
+                            { name: "NormalText", template: { content: "{NormalText}" } },
+                            { name: "Status", template: { content: "{Status}" } },
+                            { name: "PlannedStartDate", template: { content: "{PlannedStartDate}" } },
+                            { name: "PlannedStartTime", template: { content: "{PlannedStartTime}" } },
+                            { name: "PlannedEndDate", template: { content: "{PlannedEndDate}" } },
+                            { name: "PlannedEndTime", template: { content: "{PlannedEndTime}" } },
+                            { name: "EventStatus", template: { content: "{EventStatus}" } }
+                            
+                        ]
+                    });
+            
+                    oExport.saveFile("Table1_exportedData.csv").catch(function (oError) {
+                        MessageBox.error("Error while exporting data: " + oError);
+                    });
+                } else {
+                    MessageBox.warning("No data available for export.");
+                }
+            },
+            tab2spreadsheet:function(){
+                console.log('entered tab2')
+                var oTable = this.getView().byId("tstab2"); 
+                var oModel = this.getView().getModel("tsFields"); 
+            
+                if (oTable && oModel) {
+                    var oExport = new Export({
+                        exportType: new sap.ui.core.util.ExportTypeCSV({
+                            separatorChar: ","
+                        }),
+                        models: oModel,
+                        rows: {
+                            path: "/fields" 
+                        },
+                        columns: [
+                            { name: "LegId", template: { content: "{LegId}" } },
+                            { name: "PortCode", template: { content: "{PortCode}" } },
+                            { name: "EventNo", template: { content: "{EventNo}" } },
+                            { name: "EventType", template: { content: "{EventType}" } },
+                            { name: "NormalText", template: { content: "{NormalText}" } },
+                            { name: "Status", template: { content: "{Status}" } },
+                            { name: "PlannedStartDate", template: { content: "{PlannedStartDate}" } },
+                            { name: "PlannedStartTime", template: { content: "{PlannedStartTime}" } },
+                            { name: "PlannedEndDate", template: { content: "{PlannedEndDate}" } },
+                            { name: "PlannedEndTime", template: { content: "{PlannedEndTime}" } },
+                            { name: "EventStatus", template: { content: "{EventStatus}" } }
+                            
+                        ]
+                    });
+                    
+                    oExport.saveFile("Table2_exportedData.csv").catch(function (oError) {
+                         MessageBox.error("Error while exporting data: " + oError);
+                    });
+                } else {
+                    MessageBox.warning("No data available for export.");
+                }
+            },
+
+            //pdf export
+            tab1pdfexp: function () {
+                var oTable = this.getView().byId("tstab1"); // Replace with your actual table ID
+                var oModel = this.getView().getModel("tsFields"); // Replace with your actual model name
+            
+                if (oTable && oModel) {
+                    var oPdfDocument = new sap.ui.core.util.ExportTypePDF({
+                        width: "auto",
+                        height: "auto",
+                        margin: {
+                            top: 10,
+                            bottom: 10,
+                            left: 10,
+                            right: 10
+                        }
+                    });
+            
+                    var oPdfExporter = new sap.ui.core.util.Export({
+                        exportType: oPdfDocument,
+                        models: oModel,
+                        rows: {
+                            path: "/fields" // Replace with your actual model path
+                        },
+                        columns: [
+                            { name: "LegId", template: { content: "{tsFields>LegId}" } },
+                            { name: "PortCode", template: { content: "{tsFields>PortCode}" } },
+                            { name: "EventNo", template: { content: "{tsFields>EventNo}" } },
+                            { name: "EventType", template: { content: "{tsFields>EventType}" } },
+                            { name: "NormalText", template: { content: "{tsFields>NormalText}" } },
+                            { name: "Status", template: { content: "{tsFields>Status}" } },
+                            { name: "PlannedStartDate", template: { content: "{tsFields>PlannedStartDate}" } },
+                            { name: "PlannedStartTime", template: { content: "{tsFields>PlannedStartTime}" } },
+                            { name: "PlannedEndDate", template: { content: "{tsFields>PlannedEndDate}" } },
+                            { name: "PlannedEndTime", template: { content: "{tsFields>PlannedEndTime}" } },
+                            { name: "EventStatus", template: { content: "{tsFields>EventStatus}" } }
+                            // Add other columns as needed
+                        ]
+                    });
+            
+                    oPdfExporter.saveFile("exportedData.pdf").catch(function (oError) {
+                        MessageBox.error("Error while exporting data to PDF: " + oError);
+                    });
+                } else {
+                    MessageBox.warning("No data available for export.");
+                }
+            }
         });
     }
 );

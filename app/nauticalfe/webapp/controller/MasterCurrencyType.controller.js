@@ -40,7 +40,7 @@ sap.ui.define(
         if (!this._oMenuFragment) {
           this._oMenuFragment = Fragment.load({
             name: "nauticalfe.fragments.MastOptionsDropDown",
-                        id: oView.getId(),
+            id: oView.getId(),
             controller: this
           }).then(function(oMenu) {
             oMenu.openBy(oButton);

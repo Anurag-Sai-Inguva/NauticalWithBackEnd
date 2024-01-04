@@ -1,0 +1,32 @@
+{
+    "ports": [
+        {
+            "Port Name":"Mumbai",
+            "Distance":"0",
+            "Weather":"5%",
+            "Cargo Size":"7.00",
+            "Unit":"L/S",
+            "Speed":"370nml",
+            "Sea Days":"9",
+            "Port Days":"3",
+            "Arrival Date":"31-10-2023",
+            "Arrival Time":"16:38",
+            "Departure Date":"9-11-2023",
+            "Departure Time":"18:00"
+        },
+        {
+            "Port Name":"Vishakapatanam",
+            "Distance":"1800",
+            "Weather":"5%",
+            "Cargo Size":"7.00",
+            "Unit":"L/S",
+            "Speed":"370nml",
+            "Sea Days":"9",
+            "Port Days":"3",
+            "Arrival Date":"31-10-2023",
+            "Arrival Time":"16:38",
+            "Departure Date":"9-11-2023",
+            "Departure Time":"18:00"
+        }
+    ]
+}

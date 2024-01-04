@@ -1,0 +1,8 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <Menu id="_IDGenMenu1">
+        <MenuItem id="tab1excel" text="Export as SpreadSheet" visible="true" press="tab1spreadsheet"/>
+        <MenuItem id="tab1pdf" text="Export as PDF" visible="true" press="tab1pdfexp"/>
+    </Menu>
+</core:FragmentDefinition>

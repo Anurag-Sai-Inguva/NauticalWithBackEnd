@@ -18,9 +18,9 @@ sap.ui.define([
       
       
 
-      oView.byId("_IDGenButton3").attachPress(function () {
-        alert("Calculate button clicked!");
-      });
+      // oView.byId("_IDGenButton3").attachPress(function () {
+      //   alert("Calculate button clicked!");
+      // });
 
       oView.byId("_IDGenButton4").attachPress(function () {
         alert("Refresh button clicked!");
@@ -33,9 +33,11 @@ sap.ui.define([
   onChangeVoyage: function() {
     const oRouter = this.getOwnerComponent().getRouter();
     oRouter.navTo("RouteTrChangeVoyage");
-},
-
-    
+  },
+  getPortDetails:function(){
+    var val1=(this.getView().byId("field1").getValue());
+    console.log(val1)
+  }
   });
 });
  
